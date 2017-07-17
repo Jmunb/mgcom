@@ -1,0 +1,87 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile($orientation: false) {
+
+  $condition: '(max-width: #{$tablet-width - 1px})';
+
+  @if $orientation {
+    $condition: '#{$condition} and (orientation: #{$orientation})';
+  }
+
+  @media #{$condition} {
+    @content;
+  }
+
+}
+
+@mixin tablet($orientation: false) {
+
+  $condition: '(min-width: #{$tablet-width}) and (max-width: #{$desktop-width})';
+
+  @if $orientation {
+    $condition: '#{$condition} and (orientation: #{$orientation})';
+  }
+
+  @media #{$condition} {
+    @content;
+  }
+
+}
+
+
+@mixin desktop($orientation: false) {
+
+  $condition: '(min-width: #{$desktop-width + 1px})';
+
+  @if $orientation {
+    $condition: '#{$condition} and (orientation: #{$orientation})';
+  }
+
+  @media #{$condition} {
+    @content;
+  }
+
+}
+
+
+@mixin noDesktop($orientation: false) {
+
+  $condition: '(max-width: #{$desktop-width})';
+
+  @if $orientation {
+    $condition: '#{$condition} and (orientation: #{$orientation})';
+  }
+
+  @media #{$condition} {
+    @content;
+  }
+
+}
+
+
+@mixin noMobile($orientation: false) {
+
+  $condition: '(min-width: #{$tablet-width})';
+
+  @if $orientation {
+    $condition: '#{$condition} and (orientation: #{$orientation})'
+  }
+
+  @media #{$condition} {
+    @content;
+  }
+
+}
+
+@mixin retina() {
+  @media (min-width: 769px) AND (-webkit-min-device-pixel-ratio: 2), (min-width: 769px) AND (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+@mixin mobileRetina() {
+  @media (max-width: 768px) AND (-webkit-min-device-pixel-ratio: 2), (max-width: 768px) AND (min-resolution: 192dpi) {
+    @content;
+  }
+}
