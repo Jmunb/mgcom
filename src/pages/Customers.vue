@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    Customers.vue
+    Клиента
   </div>
 </template>
 

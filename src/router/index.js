@@ -8,75 +8,90 @@ import Contacts from '@/pages/Contacts'
 import Team from '@/pages/Team'
 import Vacancies from '@/pages/Vacancies'
 
-import DisplayAds from '@/pages/services/DisplayAds'
-import SocialNetworks from '@/pages/services/SocialNetworks'
+import Media from '@/pages/services/Media'
+import Target from '@/pages/services/Target'
 import SEO from '@/pages/services/SEO'
-import HeatMap from '@/pages/services/HeatMap'
+import Analitycs from '@/pages/services/Analitycs'
 import PriceLists from '@/pages/services/PriceLists'
 import Contextus from '@/pages/services/Contextus'
-import CPA from '@/pages/services/CPA'
+import Cpa from '@/pages/services/Cpa'
 import MobileAds from '@/pages/services/MobileAds'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
+      name: 'index',
       component: Index
     },
 
     {
       path: '/company',
+      name: 'company',
       component: Company
     },
     {
       path: '/customers',
+      name: 'customers',
       component: Customers
     },
     {
       path: '/contacts',
+      name: 'contacts',
       component: Contacts
     },
     {
       path: '/team',
+      name: 'team',
       component: Team
     },
     {
       path: '/vacancies',
+      name: 'vacancies',
       component: Vacancies
     },
 
     {
-      path: '/display-ads',
-      component: DisplayAds
+      path: '/media',
+      name: 'media',
+      component: Media
     },
     {
-      path: '/social-networks',
-      component: SocialNetworks
+      path: '/target',
+      name: 'target',
+      component: Target
     },
     {
       path: '/seo',
+      name: 'seo',
       component: SEO
     },
     {
-      path: '/heat-map',
-      component: HeatMap
+      path: '/analitycs',
+      name: 'analitycs',
+      component: Analitycs
     },
     {
       path: '/price-lists',
+      name: 'price-lists',
       component: PriceLists
     },
     {
       path: '/contextus',
+      name: 'contextus',
       component: Contextus
     },
     {
       path: '/cpa',
-      component: CPA
+      name: 'cpa',
+      component: Cpa
     },
     {
       path: '/mobile-ads',
+      name: 'mobile-ads',
       component: MobileAds
     }
   ]

@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    Index
+    Контакты
   </div>
 </template>
 

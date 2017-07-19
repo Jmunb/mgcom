@@ -3,7 +3,7 @@
         <header>
             <router-link to="/" class="logo" data-cost="Р0,66"></router-link>
         </header>
-        <router-view></router-view>
+        <router-view :history="history"></router-view>
         <footer>
             <router-link to="/company" class="link" data-cost="Р0,12">Компания</router-link>
             <router-link to="/customers" class="link" data-cost="Р0,03">Клиенты</router-link>
@@ -23,13 +23,15 @@ export default {
   name: 'app',
   data () {
     return {
-      path: ''
+      path: '',
+      history: []
     }
   },
   mounted () {
     router.afterEach((to, from) => {
-      // todo: дергается несоклько раз
+      window.scrollTo(0, 0)
       this.path = to.path
+      this.history.push({to, from})
     })
   },
   computed: {

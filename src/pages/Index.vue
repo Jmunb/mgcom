@@ -1,16 +1,15 @@
 <template>
     <div class="text">
-        На главной странице будет расположен короткий абзац текста,
-        в свободной форме перечисляющий то, чем занимается компания:
-        <router-link to="/contextus" class="link">контекстную рекламу</router-link>,
-        <router-link to="/price-lists" class="link">таргетированную рекламу</router-link>,
-        <router-link to="/social-networks" class="link">в соцсетях</router-link>,
+        MGCom занимается перфоманс-маркетингом крупного и среднего бизнеса:
+        <router-link to="/contextus" class="link">контекстная</router-link> и
+        <router-link to="/media" class="link">медийная реклама</router-link>,
+        <router-link to="/target" class="link">таргетинг в соцсетях</router-link>,
+        занимается <router-link to="/cpa" class="link">CPA</router-link> и
+        <router-link to="/price-lists" class="link">прайс-площадками</router-link>,
+        <router-link to="/analitycs" class="link">веб-аналитикой</router-link>,
         <router-link to="/seo" class="link">SEO</router-link>,
-        <router-link to="/cpa" class="link">CPA</router-link>,
-        <router-link to="/heat-map" class="link">веб-аналитику</router-link>,
-        <router-link to="/display-ads" class="link">медийную рекламу</router-link>,
-        <router-link to="/mobilr-ads" class="link">рекламу на мобильных устройствах</router-link>,
-        и все остальные необходимые разделы.
+        и по очереди и одновременно.<br><br>
+        Выполняем и задачи полного цикла, и отдельные проекты.
     </div>
 </template>
 

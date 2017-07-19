@@ -17,7 +17,7 @@
     </div>
     <div class="products">
       <div class="products__title">Пользователи, посмотревшие эту страницу также смотрели:</div>
-      <router-link to="/display-ads" class="link">
+      <router-link to="/media" class="link">
         <span class="link__name">Медийная реклама</span>
         <span class="link__stars">
           <img class="one-star" src="../../assets/images/price-list/star.png">
@@ -28,7 +28,7 @@
         </span>
         <span class="link__cost">от 3000 руб.</span>
       </router-link>
-      <router-link to="/social-networks" class="link">
+      <router-link to="/target" class="link">
         <span class="link__name">Таргетированная реклама в социальных сетях</span>
         <span class="link__stars">
           <img class="one-star" src="../../assets/images/price-list/star.png">
@@ -61,7 +61,7 @@
         </span>
         <span class="link__cost">от 20 руб.</span>
       </router-link>
-      <router-link to="/heat-map" class="link">
+      <router-link to="/analitycs" class="link">
         <span class="link__name">Веб аналитика</span>
         <span class="link__stars">
           <img class="one-star" src="../../assets/images/price-list/star.png">

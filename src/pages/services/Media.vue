@@ -3,11 +3,11 @@
         <div class="cloud">
             <router-link to="/contextus" class="link link__contextus"><span>Контекстная реклама</span></router-link>
             <router-link to="/price-lists" class="link link__price-list"><span>Таргетированная реклама</span></router-link>
-            <router-link to="/social-networks" class="link link__social-networks"><span>Реклама в социальных сетях</span></router-link>
+            <router-link to="/target" class="link link__social-networks"><span>Реклама в социальных сетях</span></router-link>
             <router-link to="/seo" class="link link__seo"><span>SEO</span></router-link>
             <router-link to="/cpa" class="link link__cpa"><span>CPA</span></router-link>
-            <router-link to="/heat-map" class="link link__heat-map"><span>Веб аналитика</span></router-link>
-            <router-link to="/display-ads" class="link link__display-ads"><span>Медийная реклама</span></router-link>
+            <router-link to="/analitycs" class="link link__heat-map"><span>Веб аналитика</span></router-link>
+            <router-link to="/media" class="link link__display-ads"><span>Медийная реклама</span></router-link>
             <router-link to="/mobilr-ads" class="link link__mobilr-ads"><span>Реклама на мобильных устройствах</span></router-link>
         </div>
     </div>
