@@ -1,15 +1,15 @@
 <template>
     <div class="text">
-        MGCom занимается перфоманс-маркетингом крупного и среднего бизнеса:
+        MGCom занимается перфоманс-маркетингом для крупного и среднего бизнеса:
         <router-link to="/contextus" class="link">контекстная</router-link> и
         <router-link to="/media" class="link">медийная реклама</router-link>,
-        <router-link to="/target" class="link">таргетинг в соцсетях</router-link>,
-        занимается <router-link to="/cpa" class="link">CPA</router-link> и
-        <router-link to="/price-lists" class="link">прайс-площадками</router-link>,
-        <router-link to="/analitycs" class="link">веб-аналитикой</router-link>,
-        <router-link to="/seo" class="link">SEO</router-link>,
-        и по очереди и одновременно.<br><br>
-        Выполняем и задачи полного цикла, и отдельные проекты.
+        <router-link to="/target" class="link">таргетированная реклама в социальных сетях</router-link>,
+        <router-link to="/cpa" class="link">CPA</router-link> и
+        <router-link to="/price-lists" class="link">прайс-площадки</router-link>,
+        <router-link to="/seo" class="link">SEO</router-link> и
+        <router-link to="/analitycs" class="link">веб-аналитика</router-link>.
+        <br><br>
+        Умеем работать и с масштабными проектами и digital-стратегиями, и с отдельными задачами.
     </div>
 </template>
 
@@ -25,8 +25,8 @@ export default {
 
     .text
         width: 54%
-        line-height: 1.5
         font-size: 2.9rem
         align-self: center
         padding-bottom: 3%
+        line-height: 3.8rem
 </style>

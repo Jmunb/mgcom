@@ -89,7 +89,7 @@ export default {
     background: #fff
     padding: 1.3rem
     margin: 2rem auto
-    box-shadow: 0 0 1.5rem .3rem rgba(28,0,0,.2)
+    box-shadow: 0 0 1.5rem .3rem rgba(28,0,0,.1)
 
     &__header
       color: #989a9d

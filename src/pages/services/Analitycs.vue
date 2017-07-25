@@ -5,7 +5,7 @@
         Готовим наглядные отчёты. Большой опыт настройки колл-трекинга (K50, CoMagic, Call touch)
         и работы с платформами A/B-тестирования и персонализации сайтов. Сертифицированы Яндексом и Google.
         <br><br>
-        Также умеем контекст, SEO, медийку, таргетинг в соцсетях, прайс-площадки, аналитику и мобильную реклама.
+        Также умеем
         <router-link to="/contextus" class="link">контекст</router-link>,
         <router-link to="/seo" class="link">SEO</router-link>,
         <router-link to="/media" class="link">медийку</router-link>,
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import getDummyData from '../../heatMapDummyData'
+
 export default {
   name: 'hello',
   data () {
@@ -27,26 +29,50 @@ export default {
   },
   mounted () {
     this.heatmap = document.querySelector('body')
+
     this.heatmapInstance = window.h337.create({
       container: this.heatmap,
       radius: 60,
-      blur: 0.8,
-      gradient: {
-        '.5': '#0000ad',
-        '.8': '#fec200',
-        '.95': '#fe0000'
-      }
+      blur: 1
+      // gradient: {
+        // '.2': '#0000ad',
+        // '.85': '#fec200',
+        // '.95': '#fe0000'
+      // }
     })
-    this.heatmap.onmousemove = (ev) => {
-      this.heatmapInstance.addData({
-        x: ev.layerX,
-        y: ev.layerY,
-        value: 1
-      })
+
+    this.heatmapInstance.setData({
+      max: 10,
+      min: 0,
+      data: []
+    })
+
+    if (window.innerWidth > 1023 || !window.Touch) {
+      this.heatmap.onmousemove = (ev) => {
+        this.heatmapInstance.addData({
+          x: ev.layerX,
+          y: ev.layerY,
+          radius: 60,
+          value: 3
+        })
+      }
+    } else {
+      this.heatmapInstance.setData(getDummyData()[0])
+      this.heatmap.ontouchmove = (ev) => {
+        const touches = ev.touches
+
+        this.heatmapInstance.addData({
+          x: touches[0].pageX,
+          y: touches[0].pageY,
+          radius: 40,
+          value: 6
+        })
+      }
     }
   },
   beforeDestroy () {
     this.heatmap.onmousemove = function () {}
+    this.heatmap.ontouchmove = function () {}
     this.heatmapInstance._renderer.canvas.remove()
     this.heatmapInstance = null
   }
@@ -54,12 +80,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-    .link
-        color: #0202e6
-        text-shadow: 0 0 1px #fdfdff
-
     .heatmap
-        width: 70%
+        width: 54%
         line-height: 1.5
         font-size: 2.9rem
         align-self: center

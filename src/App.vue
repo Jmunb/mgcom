@@ -1,13 +1,13 @@
 <template>
-    <div id="app" v-bind:class="{cpa_link:isCPAPage}">
+    <div id="app" v-bind:class="{cpa_link:isCPAPage, cpa_target:isTargetPage}">
         <header>
             <router-link to="/" class="logo" data-cost="Р0,66"></router-link>
         </header>
         <router-view :history="history"></router-view>
         <footer>
-            <router-link to="/company" class="link" data-cost="Р0,12">Компания</router-link>
-            <router-link to="/customers" class="link" data-cost="Р0,03">Клиенты</router-link>
             <router-link to="/contacts" class="link" data-cost="Р0,75">Контакты</router-link>
+            <router-link to="/customers" class="link" data-cost="Р0,03">Клиенты</router-link>
+            <router-link to="/partners" class="link" data-cost="Р0,12">Партнеры</router-link>
             <div class="last-links">
                 <router-link to="/team" class="link link--nested" data-cost="Р0,07">Команда</router-link>
                 <router-link to="/vacancies" class="link link--nested" data-cost="Р1,56">Вакансии</router-link>
@@ -37,6 +37,9 @@ export default {
   computed: {
     isCPAPage () {
       return this.path === '/cpa'
+    },
+    isTargetPage () {
+      return this.path === '/target'
     }
   }
 }
@@ -50,6 +53,10 @@ export default {
         flex-flow: column nowrap
         padding: 5rem 5rem 4rem 7rem
         justify-content: space-between
+
+        &.cpa_target
+            height: 100vh
+            overflow: hidden
 
     header, footer
         display: flex
@@ -68,7 +75,7 @@ export default {
         display: block
         position: relative
         text-decoration: none
-        background: url(assets/images/logo.png) no-repeat center center / contain
+        background: url(assets/images/logo.svg) no-repeat center center / contain
 
     .link
         font-size: 1.3rem

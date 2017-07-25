@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Index from '@/pages/Index'
-import Company from '@/pages/Company'
+import Partners from '@/pages/Partners'
 import Customers from '@/pages/Customers'
 import Contacts from '@/pages/Contacts'
 import Team from '@/pages/Team'
@@ -29,9 +29,9 @@ export default new Router({
     },
 
     {
-      path: '/company',
-      name: 'company',
-      component: Company
+      path: '/partners',
+      name: 'partners',
+      component: Partners
     },
     {
       path: '/customers',
