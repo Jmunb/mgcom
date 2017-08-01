@@ -7,7 +7,8 @@
         <router-link to="/cpa" class="link">CPA</router-link> и
         <router-link to="/price-lists" class="link">прайс-площадки</router-link>,
         <router-link to="/seo" class="link">SEO</router-link> и
-        <router-link to="/analitycs" class="link">веб-аналитика</router-link>.
+        <router-link to="/analitycs" class="link">веб-аналитика</router-link>,
+        <router-link to="/mobile-ads" class="link">мобильная реклама</router-link>.
         <br><br>
         Умеем работать и с масштабными проектами и digital-стратегиями, и с отдельными задачами.
     </div>

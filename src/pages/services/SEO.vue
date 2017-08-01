@@ -1,13 +1,19 @@
 <template>
     <div class="wrapper">
-        <autocomplete
-                name="people"
-                url="http://localhost:3000/remote-list/klien"
-                anchor="value"
-                label="label"
-                model="vModelLike">
-        </autocomplete>
-        <input type="text" value="SEO" disabled>
+        <div class="select__wrapper" tabindex="-1" v-bind:class="{'select__wrapper--show':showSearchList}">
+            <input
+                @blur="blur"
+                @focus="focus"
+                type="text"
+                placeholder="seo"
+                v-model="searchString"
+            >
+            <ul class="select__list">
+                <router-link v-for="route in filterLinks" :to="route.link" class="select__item" :key="route.id" tag="li">
+                    {{route.t || route.title}}
+                </router-link>
+            </ul>
+        </div>
         <div class="result">
             <router-link to="/seo" class="result__title">SEO | Поисковая оптимизация</router-link>
             <div class="result__text">
@@ -19,17 +25,17 @@
             <div class="about__title">Вместе с «seo» ищут:</div>
             <div class="about__columns">
                 <div class="about__column">
-                    <router-link v-for="route in linksMap.first" :to="links[route].link" class="about__link" :key="route">
+                    <router-link v-for="route in linksMap.first" :to="links[route].link" class="about__link" :key="links[route].id">
                         {{links[route].title}}
                     </router-link>
                 </div>
                 <div class="about__column">
-                    <router-link v-for="route in linksMap.second" :to="links[route].link" class="about__link" :key="route">
+                    <router-link v-for="route in linksMap.second" :to="links[route].link" class="about__link" :key="links[route].id">
                         {{links[route].title}}
                     </router-link>
                 </div>
                 <div class="about__column">
-                    <router-link v-for="route in linksMap.third" :to="links[route].link" class="about__link" :key="route">
+                    <router-link v-for="route in linksMap.third" :to="links[route].link" class="about__link" :key="links[route].id">
                         {{links[route].title}}
                     </router-link>
                 </div>
@@ -40,14 +46,14 @@
 
 <script>
 let links = [
-  {title: 'контекст', link: '/contextus'}, // 0
-  {title: 'веб-аналитика', link: '/analitycs'}, // 1
-  {title: 'медийная реклама', link: '/media'}, // 2
-  {title: 'таргетинг в соцсетях', link: '/target'}, // 3
-  {title: 'прайс-площадки', link: '/price-lists'}, // 4
-  {title: 'smm', link: '/seo'}, // 5
-  {title: 'мобайл', link: '/mobile-ads'}, // 6
-  {title: 'CPA', link: '/cpa'} // 7
+  {id: 1, title: 'контекст', link: '/contextus'}, // 0
+  {id: 2, title: 'веб-аналитика', link: '/analitycs'}, // 1
+  {id: 3, title: 'медийная реклама', link: '/media'}, // 2
+  {id: 4, title: 'таргетинг в соцсетях', link: '/target'}, // 3
+  {id: 5, title: 'прайс-площадки', link: '/price-lists'}, // 4
+  {id: 6, t: 'SEO', title: 'smm', link: '/seo'}, // 5
+  {id: 7, title: 'мобайл', link: '/mobile-ads'}, // 6
+  {id: 8, title: 'CPA', link: '/cpa'} // 7
 ]
 let source = {
   'index': {
@@ -95,28 +101,86 @@ export default {
     let fromRouteName = (lastTransition || {}).from || {}
 
     return {
-      linksMap: source[fromRouteName.name || 'index'],
+      showSearchList: false,
+      searchString: '',
+      linksMap: source[fromRouteName.name || 'index'] || source['index'],
       links: links
+    }
+  },
+  methods: {
+    blur () {
+      this.showSearchList = false
+      this.searchString = ''
+    },
+    focus () {
+      this.showSearchList = true
+    }
+  },
+  computed: {
+    filterLinks: function () {
+      let searchString = this.searchString.trim().toLowerCase()
+
+      return this.links.filter(link => (link.t || link.title).toLowerCase().indexOf(searchString) > -1)
     }
   }
 }
 </script>
 
 <style lang="sass" scoped>
+    .select
+        &__wrapper
+            outline: 0
+            position: relative
+            box-shadow: 0 0 1rem .3rem rgba(28,0,0,.05)
+
+            &--show .select__list
+                opacity: 1
+                visibility: visible
+                transition: opacity .1s ease-in, visibility 0s step-end
+
+        &__list
+            left: 0
+            top: 100%
+            margin: 0
+            z-index: 1
+            padding: 0
+            width: 100%
+            opacity: 0
+            list-style: none
+            position: absolute
+            background: #fff
+            visibility: hidden
+            transition: opacity .1s ease-in, visibility .2s step-end
+            border-top: 1px solid rgba(28,0,0,.05)
+            box-shadow: 0 0 .5rem .1rem rgba(28,0,0,.05)
+
+        &__item
+            cursor: pointer
+            padding: 0 2rem
+            line-height: 4rem
+            font-size: 1.4rem
+
+            &:hover
+                background: #dedede
+
     .wrapper
         width: 52%
+        flex-grow: 1
+        padding-top: 30vh
         align-self: center
         padding-bottom: 5rem
 
     input
         border: 0
+        z-index: 2
         outline: 0
         width: 100%
         height: 5rem
         background: #fff
         font-size: 2.1rem
         padding-left: 2rem
-        box-shadow: 0 0 1.5rem .3rem rgba(28,0,0,.1)
+        position: relative
+        padding-top: 1.5rem
 
     .result
         margin-top: 5rem
@@ -152,6 +216,4 @@ export default {
         &__link
             line-height: 3rem
             display: block
-
-
 </style>

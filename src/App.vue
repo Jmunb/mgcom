@@ -5,12 +5,16 @@
         </header>
         <router-view :history="history"></router-view>
         <footer>
-            <router-link to="/contacts" class="link" data-cost="Р0,75">Контакты</router-link>
-            <router-link to="/customers" class="link" data-cost="Р0,03">Клиенты</router-link>
-            <router-link to="/partners" class="link" data-cost="Р0,12">Партнеры</router-link>
+            <div class="first-link">
+                <router-link to="/contacts" class="link" data-cost="Р0,75">Контакты</router-link>
+                <router-link to="/customers" class="link" data-cost="Р0,03">Клиенты</router-link>
+                <router-link to="/partners" class="link" data-cost="Р0,12">Партнеры</router-link>
+            </div>
             <div class="last-links">
-                <router-link to="/team" class="link link--nested" data-cost="Р0,07">Команда</router-link>
-                <router-link to="/vacancies" class="link link--nested" data-cost="Р1,56">Вакансии</router-link>
+                <div class="links-wrapper">
+                    <router-link to="/team" class="link link--nested" data-cost="Р0,07">Команда</router-link>
+                    <router-link to="/vacancies" class="link link--nested" data-cost="Р1,56">Вакансии</router-link>
+                </div>
             </div>
         </footer>
     </div>
@@ -33,6 +37,7 @@ export default {
       this.path = to.path
       this.history.push({to, from})
     })
+    this.path = router.history.current.path
   },
   computed: {
     isCPAPage () {
@@ -58,16 +63,48 @@ export default {
             height: 100vh
             overflow: hidden
 
+            .link
+                line-height: 2.5rem
+
+            .first-link
+                flex-flow: column nowrap
+
+            .first-link,
+            .last-links
+                flex: 0 0
+
+            .links-wrapper
+                transform: rotate(-90deg)
+
     header, footer
         display: flex
         align-items: center
         flex-flow: row nowrap
         justify-content: space-between
 
+    header
+        flex: 0 0 3.8rem
+
     header::after
         font-size: 1.3rem
         padding-right: 5rem
         content: 'A Performance Agency'
+
+    .first-link
+        display: flex
+        flex: 0 0 75%
+        flex-flow: row nowrap
+        justify-content: space-between
+
+    .last-links
+        flex: 0 0 25%
+        display: flex
+        justify-content: flex-end
+
+    .links-wrapper
+        overflow: hidden
+        transform: rotate(-90deg) translate(3rem, 0)
+
 
     .logo
         width: 19.1rem
@@ -84,10 +121,6 @@ export default {
         &--nested
             display: block
             line-height: 2.5rem
-
-    .last-links
-        transform: rotate(-90deg)
-        transform-origin: 10% 50%
 
     .link
         position: relative
