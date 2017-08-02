@@ -4,7 +4,6 @@
         Анализируем каналы и источники мультиканально, пост-клик и пост-вью конверсии.
         Готовим наглядные отчёты. Большой опыт настройки колл-трекинга (K50, CoMagic, Call touch)
         и работы с платформами A/B-тестирования и персонализации сайтов. Сертифицированы Яндексом и Google.
-        <br><br>
         Также умеем
         <router-link to="/contextus" class="link">контекст</router-link>,
         <router-link to="/seo" class="link">SEO</router-link>,
@@ -33,12 +32,13 @@ export default {
     this.heatmapInstance = window.h337.create({
       container: this.heatmap,
       radius: 60,
-      blur: 1
-      // gradient: {
-        // '.2': '#0000ad',
-        // '.85': '#fec200',
-        // '.95': '#fe0000'
-      // }
+      blur: 1,
+      gradient: {
+        '.45': '#0700b0',
+        '.75': '#ff0199',
+        '.95': '#fe0000',
+        '1': '#fec200'
+      }
     })
 
     this.heatmapInstance.setData({
@@ -81,7 +81,8 @@ export default {
 
 <style lang="sass" scoped>
     .heatmap
-        width: 54%
+        width: 61%
+        padding-left: 7vw
         line-height: 1.5
         font-size: 2.9rem
         align-self: center
