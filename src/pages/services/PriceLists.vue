@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
     <div class="left-column">
-      <div class="slider">
-        <div class="one-card">Вариант 1</div>
-        <div class="one-card one-card--small one-card--active">Вариант 2</div>
-        <div class="one-card one-card--small">Вариант 3</div>
-        <div class="one-card one-card--small">Вариант 4</div>
+      <div class="slider" v-bind:class="'slider--' + sliderIndex">
+        <div class="one-card" v-bind:class="'one-card--' + photoIndex"></div>
+        <div class="one-card one-card--1 one-card--small" v-bind:class="{'one-card--active': photoIndex===1}" @click="showPhoto(1)"></div>
+        <div class="one-card one-card--2 one-card--small" v-bind:class="{'one-card--active': photoIndex===2}" @click="showPhoto(2)"></div>
+        <div class="one-card one-card--3 one-card--small" v-bind:class="{'one-card--active': photoIndex===3}" @click="showPhoto(3)"></div>
       </div>
       <div class="products">
         <div class="products__title">Пользователи, посмотревшие эту страницу также смотрели:</div>
@@ -84,11 +84,11 @@
     <div class="right-column">
       <div class="info__title">Реклама на прайс&#8209;площадках</div>
       <div class="info__ico">
-        <span class="info__one-ico info__one-ico--1"></span>
-        <span class="info__one-ico info__one-ico--2"></span>
-        <span class="info__one-ico info__one-ico--3"></span>
-        <span class="info__one-ico info__one-ico--4"></span>
-        <span class="info__one-ico info__one-ico--5"></span>
+        <span class="info__one-ico info__one-ico--1" @click="showSlider(1)"></span>
+        <span class="info__one-ico info__one-ico--2" @click="showSlider(2)"></span>
+        <span class="info__one-ico info__one-ico--3" @click="showSlider(3)"></span>
+        <span class="info__one-ico info__one-ico--4" @click="showSlider(4)"></span>
+        <span class="info__one-ico info__one-ico--5" @click="showSlider(5)"></span>
       </div>
       <div class="info__text">
         Продажи можно повысить за счёт размещения рекламы на
@@ -101,7 +101,22 @@
 
 <script>
 export default {
-  name: 'PriceLists'
+  name: 'PriceLists',
+  data () {
+    return {
+      sliderIndex: 1,
+      photoIndex: 1
+    }
+  },
+  methods: {
+    showSlider (index) {
+      this.sliderIndex = index
+      this.photoIndex = 1
+    },
+    showPhoto (index) {
+      this.photoIndex = index
+    }
+  }
 }
 </script>
 
@@ -123,12 +138,11 @@ export default {
   flex: 1 1 25rem
 
 .one-card
-  padding: 2rem 3rem
   color: #dfdfec
-  background: #fff
   font-size: 1.5rem
   cursor: pointer
   margin-bottom: 1rem
+  background: #fff no-repeat center center / contain
 
   &:first-child
     height: 29rem
@@ -137,22 +151,75 @@ export default {
   &:last-child
     margin-right: 0
 
-  &:hover
-    padding: 1.6rem 2.6rem
-    border: 4px solid #3b82e6
-
   &--small
     flex: 1 1 20rem
     height: 9rem
     margin-right: 1rem
 
+    &:hover
+      border: 4px solid #3b82e6
+
   &--active
     padding: 1.6rem 2.6rem
     border: 4px solid #0202e6
 
+    &:hover
+      border: 4px solid #0202e6
+
 .slider
   display: flex
   flex-flow: row wrap
+
+  &--1
+    & > .one-card--1
+      background-image: url(../../assets/images/price-list/cards/1/1.jpg)
+
+    & > .one-card--2
+      background-image: url(../../assets/images/price-list/cards/1/2.jpg)
+
+    & > .one-card--3
+      background-image: url(../../assets/images/price-list/cards/1/3.jpg)
+
+  &--2
+    & > .one-card--1
+      background-image: url(../../assets/images/price-list/cards/2/1.jpg)
+
+    & > .one-card--2
+      background-image: url(../../assets/images/price-list/cards/2/2.jpg)
+
+    & > .one-card--3
+      background-image: url(../../assets/images/price-list/cards/2/3.jpg)
+
+  &--3
+    & > .one-card--1
+      background-image: url(../../assets/images/price-list/cards/3/1.jpg)
+
+    & > .one-card--2
+      background-image: url(../../assets/images/price-list/cards/3/2.jpg)
+
+    & > .one-card--3
+      background-image: url(../../assets/images/price-list/cards/3/3.jpg)
+
+  &--4
+    & > .one-card--1
+      background-image: url(../../assets/images/price-list/cards/4/1.jpg)
+
+    & > .one-card--2
+      background-image: url(../../assets/images/price-list/cards/4/2.jpg)
+
+    & > .one-card--3
+      background-image: url(../../assets/images/price-list/cards/4/3.jpg)
+
+  &--5
+    & > .one-card--1
+      background-image: url(../../assets/images/price-list/cards/5/1.jpg)
+
+    & > .one-card--2
+      background-image: url(../../assets/images/price-list/cards/5/2.jpg)
+
+    & > .one-card--3
+      background-image: url(../../assets/images/price-list/cards/5/3.jpg)
+
 
 .info
   &__title
@@ -178,23 +245,23 @@ export default {
 
     &--1
       margin-right: .8rem
-      background-image: url(../../assets/images/logo_yandex.svg)
+      background-image: url(../../assets/images/price-list/logo_yandex.svg)
 
     &--2
       background-size: 3.8rem
-      background-image: url(../../assets/images/logo_mailru.svg)
+      background-image: url(../../assets/images/price-list/logo_mailru.svg)
 
     &--3
       width: 3rem
-      background-image: url(../../assets/images/logo_wiki.png)
+      background-image: url(../../assets/images/price-list/logo_wiki.png)
 
     &--4
       background-size: 1.9rem
-      background-image: url(../../assets/images/logo_info.png)
+      background-image: url(../../assets/images/price-list/logo_info.png)
 
     &--5
       background-size: 2rem
-      background-image: url(../../assets/images/logo_mixmarket.png)
+      background-image: url(../../assets/images/price-list/logo_mixmarket.png)
 
 
 .products__title
