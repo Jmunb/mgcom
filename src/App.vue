@@ -1,5 +1,10 @@
 <template>
-    <div id="app" v-bind:class="{cpa_link:isCPAPage, cpa_target:isTargetPage}">
+    <div class="app" v-bind:class="{cpa_link:isCPAPage, cpa_target:isTargetPage, app__showbg:showBg, app__showhm:showHm}">
+        <div class="bgimage">
+            <div class="one-row" v-for="n in 10" v-bind:class="'one-row-' + n">
+                <div class="one-cel" v-for="j in 20" v-bind:class="'one-cel-' + j" ></div>
+            </div>
+        </div>
         <header>
             <router-link to="/" class="logo" data-cost="Р0,66"></router-link>
         </header>
@@ -28,8 +33,31 @@ export default {
   data () {
     return {
       path: '',
-      history: []
+      history: [],
+      showBg: false,
+      showHm: false,
+      realBgState: false,
+      activeAnimate: false
     }
+  },
+  created () {
+    this.$root.$on('showHm', (state) => {
+      this.showHm = state
+    })
+    this.$root.$on('showBg', (state) => {
+      this.realBgState = state
+
+      if (!this.activeAnimate) {
+        this.showBg = state
+        this.activeAnimate = true
+
+        setTimeout(() => {
+          // TODO: Поправить отмену анимации
+          this.activeAnimate = false
+          this.showBg = this.realBgState
+        }, 1850)
+      }
+    })
   },
   mounted () {
     router.afterEach((to, from) => {
@@ -52,12 +80,77 @@ export default {
 
 <style src="./assets/styles/main.scss" lang="sass"></style>
 <style lang="sass" scoped>
-    #app
+    .one-row
+        height: 10%
+        display: flex
+        flex-flow: row nowrap
+        justify-content: space-between
+
+    .one-cel
+        flex: 1 1 5%
+        opacity: 0
+        transform: scale(0)
+        transition: transform .15s linear, opacity .2s linear
+        background: no-repeat center center url(assets/images/mobile_bg.png)
+        background-size: 100vw 100vh
+
+    @for $i from 1 through 10
+        .one-row-#{$i}
+            @for $j from 1 through 20
+                .one-cel-#{$j}
+                    transition-delay: ($j * 0.05s) + (($i - 1) * .05s)
+                    background-position-x: -($j - 1) * 5vw
+                    background-position-y: -($i - 1) * 10vh
+
+    .bgimage
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        position: fixed
+        pointer-events: none
+        perspective: 100rem
+
+        &::after
+            display: block
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            opacity: 0
+            transition: opacity .3s linear
+            background: #000
+
+    .app
         display: flex
         min-height: 100vh
         flex-flow: column nowrap
         padding: 5rem 5rem 4rem 7rem
         justify-content: space-between
+
+        header,
+        footer a
+            transition: color .4s linear
+
+        &__showbg
+            header,
+            footer a
+                color: #fff
+
+            .one-cel
+                opacity: 1
+                will-change: transform, opacify
+                transform: scale(1)
+
+        &__showhm
+            header,
+            footer a
+                color: #2a2fe3
+
+            .bgimage::after
+                opacity: 1
 
         &.cpa_target
             height: 100vh
@@ -78,6 +171,7 @@ export default {
 
     header, footer
         display: flex
+        position: relative
         align-items: center
         flex-flow: row nowrap
         justify-content: space-between
