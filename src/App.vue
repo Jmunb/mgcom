@@ -132,7 +132,7 @@ export default {
 
         header,
         footer a
-            transition: color .4s linear
+            transition: background .4s linear, color .4s linear
 
         &__showbg
             header,
@@ -210,20 +210,25 @@ export default {
 
     .link
         font-size: 1.3rem
-        line-height: 4.5rem
+        position: relative
+        line-height: 2.8rem
+        display: inline-block
+        border-radius: 1.5rem
+        background: transparent
+        padding: .5rem 3rem 0 1.5rem
+
+        &.router-link-active
+            color: #fff
+            background: #29292d
 
         &--nested
             display: block
-            line-height: 2.5rem
 
-    .link
-        position: relative
+            &:first-child::before
+                top: -.2rem
 
-        &--nested:first-child::before
-            top: -.2rem
-
-        &--nested:last-child::before
-            top: .2rem
+            &:last-child::before
+                top: .2rem
 
         &::before
             opacity: 0
