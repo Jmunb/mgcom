@@ -160,6 +160,7 @@ export default {
                 line-height: 2.5rem
 
             .first-link
+                margin-left: -1.5rem
                 flex-flow: column nowrap
 
             .first-link,
@@ -196,7 +197,6 @@ export default {
         justify-content: flex-end
 
     .links-wrapper
-        overflow: hidden
         transform: rotate(-90deg) translate(3rem, 0)
 
 
@@ -230,9 +230,8 @@ export default {
             &:last-child::before
                 top: .2rem
 
-        &::before
+        &::after
             opacity: 0
-            pointer-events: none
             transition: opacity .3s linear
             color: #fff
             font-size: 1.5rem
@@ -241,7 +240,7 @@ export default {
             border-radius: 5px
             padding: .5rem 1rem .1rem .5rem
             position: absolute
-            left: 120%
+            margin: -1rem 0 0 1rem
             content: attr(data-cost)
 
 
@@ -259,7 +258,7 @@ export default {
         left: 120%
         content: attr(data-cost)
 
-    .cpa_link .link::before,
+    .cpa_link .link::after,
     .cpa_link .logo::before
         opacity: 1
         transition-delay: .5s
