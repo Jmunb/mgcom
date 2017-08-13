@@ -166,9 +166,11 @@ export default {
     .wrapper
         width: 52%
         flex-grow: 1
-        padding-top: 30vh
+        display: flex
+        padding: 5rem 0
         align-self: center
-        padding-bottom: 5rem
+        flex-flow: column nowrap
+        justify-content: flex-end
 
     input
         border: 0
@@ -180,7 +182,6 @@ export default {
         font-size: 2.1rem
         padding-left: 2rem
         position: relative
-        padding-top: 1.5rem
 
     .result
         margin-top: 5rem
