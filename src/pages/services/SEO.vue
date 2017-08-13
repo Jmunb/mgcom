@@ -4,12 +4,13 @@
             <input
                 @blur="blur"
                 @focus="focus"
+                @keyup.40.38.27.13="keyboard"
                 type="text"
                 placeholder="seo"
                 v-model="searchString"
             >
             <ul class="select__list">
-                <router-link v-for="route in filterLinks" :to="route.link" class="select__item" :key="route.id" tag="li">
+                <router-link v-for="(route, index) in filterLinks" :to="route.link" class="select__item" v-bind:class="{'active':activeTab == index}" :key="route.id" tag="li">
                     {{route.t || route.title}}
                 </router-link>
             </ul>
@@ -102,6 +103,7 @@ export default {
 
     return {
       showSearchList: false,
+      activeTab: -1,
       searchString: '',
       linksMap: source[fromRouteName.name || 'index'] || source['index'],
       links: links
@@ -109,11 +111,36 @@ export default {
   },
   methods: {
     blur () {
+      this.activeTab = -1
       this.showSearchList = false
       this.searchString = ''
     },
     focus () {
       this.showSearchList = true
+    },
+    keyboard (event) {
+      let code = event.keyCode
+      let activeTabIndex = this.activeTab
+
+      if (code === 40) {
+        activeTabIndex++
+
+        if (activeTabIndex > this.filterLinks.length - 1) activeTabIndex = 0
+      } else if (code === 38) {
+        activeTabIndex--
+
+        if (activeTabIndex < 0) activeTabIndex = this.filterLinks.length - 1
+      } else if (code === 13) {
+        let selectTab = this.filterLinks[activeTabIndex]
+
+        if (selectTab) {
+          this.$router.push(selectTab.link)
+        }
+      } else if (code === 27) {
+        event.target.blur()
+      }
+
+      this.activeTab = activeTabIndex
     }
   },
   computed: {
@@ -121,6 +148,11 @@ export default {
       let searchString = this.searchString.trim().toLowerCase()
 
       return this.links.filter(link => (link.t || link.title).toLowerCase().indexOf(searchString) > -1)
+    }
+  },
+  watch: {
+    searchString () {
+      this.activeTab = -1
     }
   }
 }
@@ -160,6 +192,7 @@ export default {
             line-height: 4rem
             font-size: 1.4rem
 
+            &.active,
             &:hover
                 background: #dedede
 
