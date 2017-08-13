@@ -359,6 +359,6 @@ export default {
 
     &-2
       font-size: 4rem
-      background-image: url(../../assets/images/displayAds/3.png)
+      background-image: url(../../assets/images/mobile_bg.png)
 
 </style>
