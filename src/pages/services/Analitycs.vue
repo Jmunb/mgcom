@@ -1,5 +1,5 @@
 <template>
-    <div class="heatmap">
+    <div class="page-content analytics-layout">
         MGCom решает любые задачи веб-аналитики.
         Анализируем каналы и источники мультиканально, пост-клик и пост-вью конверсии.
         Готовим наглядные отчёты. Большой опыт настройки колл-трекинга (K50, CoMagic, Call touch)
@@ -27,7 +27,7 @@ export default {
     }
   },
   mounted () {
-    this.heatmap = document.querySelector('body')
+    this.heatmap = document.querySelector('.app')
 
     this.heatmapInstance = window.h337.create({
       container: this.heatmap,
@@ -79,12 +79,21 @@ export default {
 }
 </script>
 
+<style lang="sass">
+    .heatmap-canvas
+        z-index: -1
+
+    .logo__first-letter,
+    .logo__last-letter
+        fill: #fff !important
+
+    .app--route-analitycs
+        color: #fff
+        background: rgba(0, 0, 0, .85)
+
+        a
+            color: #fff
+
+</style>
 <style lang="sass" scoped>
-    .heatmap
-        width: 61%
-        padding-left: 7vw
-        line-height: 1.5
-        font-size: 2.9rem
-        align-self: center
-        padding-bottom: 3%
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="text">
+    <div class="page-content">
         Агентство помогает крупному и среднему бизнесу привлекать клиентов и проводить их по воронке,
         увеличивать продажи и охват, повышать знание и лояльность – с помощью перфоманс-маркетинга – комбинируя разные инструменты:
         <router-link to="/contextus" class="link">контекстную</router-link> и
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'Index'
+  name: 'index'
 }
 </script>
 
@@ -24,10 +24,4 @@ export default {
     .link
         color: #0202e6
 
-    .text
-        width: 54%
-        font-size: 2.9rem
-        align-self: center
-        padding-bottom: 3%
-        line-height: 3.8rem
 </style>

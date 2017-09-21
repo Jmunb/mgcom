@@ -1,9 +1,9 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper page-content">
     <div class="scroller">
       <div class="content">
         <div class="tags">
-          <div class="tags-column">
+          <div class="tags-column tags-column-1">
             <div class="one-tag__wrapper">
               <a
                   href="#"
@@ -21,7 +21,7 @@
               >{{ tags[1].title }}</a>
             </div>
           </div>
-          <div class="tags-column">
+          <div class="tags-column tags-column-2">
             <div class="one-tag__wrapper">
               <a
                       href="#"
@@ -39,7 +39,7 @@
               >{{ tags[3].title }}</a>
             </div>
           </div>
-          <div class="tags-column">
+          <div class="tags-column tags-column-3">
             <div class="one-tag__wrapper">
               <a
                       href="#"
@@ -49,7 +49,7 @@
               >{{ tags[4].title }}</a>
             </div>
           </div>
-          <div class="tags-column">
+          <div class="tags-column tags-column-4">
             <div class="one-tag__wrapper">
               <a
                       href="#"
@@ -163,35 +163,40 @@
 </script>
 
 <style lang="sass" scoped>
+  @import "../assets/styles/mixins"
+
   .wrapper
-    flex-grow: 1
     display: flex
-    background: #fff
-    overflow: hidden
     position: relative
     flex-flow: row nowrap
     align-items: flex-start
-    width: calc(100% - 50.2rem)
-    margin: -10.4rem 0 0 23.7rem
-    border-radius: 0 0 .7rem .7rem
     justify-content: space-between
 
+    @include desktop
+      overflow: hidden
+      background: #fff
+      margin-top: -19rem
+      border-radius: 0 0 .7rem .7rem
+
+    @include mobile
+      margin: 0 -1.9rem -4.5rem
+
   .scroller
-    overflow: auto
-    // width: calc(100% + 10rem)
-    height: calc(100vh - 17.8rem)
-    -webkit-overflow-scrolling: touch
+    @include desktop
+      overflow: auto
+      height: calc(100vh - 17.8rem)
+      -webkit-overflow-scrolling: touch
 
   .content
-    padding: 6.9rem 6.5rem 4.7rem
+    @include desktop
+      padding: 6.9rem 6.5rem 4.7rem
 
+    @include tablet
+      display: flex
+      flex-flow: column nowrap
+      justify-content: space-between
 
   .one-tag
-    cursor: pointer
-    font-size: 1.3rem
-    letter-spacing: 0.05rem
-    line-height: 2rem
-
     &--active
       color: #0A0AE2
 
@@ -203,10 +208,29 @@
       min-height: 4rem
       margin-bottom: 2.5rem
 
+      @include mobile
+        margin-bottom: 1.5rem
+
   .tags
+    font-size: 1.3rem
+    letter-spacing: 0.05rem
+    line-height: 1.9rem
     display: flex
     flex-flow: row nowrap
     justify-content: space-between
+
+    @include tablet
+      padding: 1rem 4.7rem
+
+    @include tablet('portrait')
+      padding: .5rem 3.6rem
+      flex-flow: row wrap
+
+    @include mobile
+      flex-flow: row wrap
+      padding-left: 2.7rem
+      font-size: 1.2rem
+      line-height: 1.8rem
 
     &-column
       flex: 0 0 25%
@@ -215,9 +239,86 @@
       flex-flow: column nowrap
       justify-content: flex-end
 
+      &-3
+        @include tablet('portrait')
+          padding: 0
+
+        @include mobile
+          flex: 0 0 100%
+          justify-content: flex-start
+
+      &-4
+        @include tablet('portrait')
+          order: 0
+          padding: 0
+          flex: 0 0 100%
+          flex-flow: row nowrap
+          justify-content: flex-start
+
+        @include mobile
+          flex: 0 0 100%
+
+        .one-tag__wrapper
+          @include mobile
+            &:first-child
+              order: 1
+
+          @include tablet('portrait')
+            padding-right: 2rem
+            flex: 0 0 38%
+
+            &:first-child
+              order: 1
+
+      &-1,
+      &-2,
+      &-3
+        @include tablet('portrait')
+          order: 1
+
+        @include mobile
+          order: 1
+
+      @include mobile
+        padding: 0
+        flex-flow: row nowrap
+
+
+      &-1,
+      &-2
+        @include mobile
+          flex: 0 0 50%
+          flex-flow: column nowrap
+          justify-content: flex-start
+          align-content: flex-start
+
+
+      &-3,
+      &-4
+        .one-tag__wrapper
+          @include mobile
+            flex: 0 0 50%
+
   .jobs-list
-    width: 75%
     padding: 0
     list-style: none
     margin: 1.4rem 0 0 0
+
+    @include desktop
+      width: 75%
+
+    @include noDesktop
+      background: #fff
+      padding: 4.6rem
+      margin-bottom: -6rem
+      border-radius: .7rem .7rem 0 0
+
+    @include tablet('portrait')
+      padding: 3.5rem
+
+    @include mobile
+      padding: 2.7rem
+      overflow: hidden
+      margin: 0
+
 </style>

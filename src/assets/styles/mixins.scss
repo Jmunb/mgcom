@@ -74,6 +74,21 @@ $desktop-width: 1024px;
 
 }
 
+
+@mixin bigDesktop($orientation: false) {
+
+  $condition: '(min-width: 1601px)';
+
+  @if $orientation {
+    $condition: '#{$condition} and (orientation: #{$orientation})'
+  }
+
+  @media #{$condition} {
+    @content;
+  }
+
+}
+
 @mixin retina() {
   @media (min-width: 769px) AND (-webkit-min-device-pixel-ratio: 2), (min-width: 769px) AND (min-resolution: 192dpi) {
     @content;

@@ -218,9 +218,6 @@ export default {
       transform: translateY(-5rem)
 
   .wrapper
-    flex-grow: 1
-    position: relative
-    padding-bottom: 4rem
     display: flex
     flex-flow: column nowrap
     justify-content: space-between

@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper page-content">
         <div class="select__wrapper" tabindex="-1" v-bind:class="{'select__wrapper--show':showSearchList}">
             <input
                 @blur="blur"
@@ -56,6 +56,7 @@ let links = [
   {id: 7, title: 'мобайл', link: '/mobile-ads'}, // 6
   {id: 8, title: 'CPA', link: '/cpa'} // 7
 ]
+
 let source = {
   'index': {
     first: [0, 3, 6],

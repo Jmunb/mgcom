@@ -1,5 +1,6 @@
 <template>
-  <div class="wrapper">
+  <div v-if="true" class="test"></div>
+  <div v-else class="wrapper">
     <div class="left-column">
       <div class="slider" v-bind:class="'slider--' + sliderIndex">
         <div class="one-card" v-bind:class="'one-card--' + photoIndex"></div>
@@ -148,6 +149,11 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.test
+  width: 50vw
+  height: 40vh
+  background: red
+
 .wrapper
   width: 100%
   flex-grow: 1
@@ -155,7 +161,6 @@ export default {
   flex-flow: row nowrap
   justify-content: space-between
   align-self: center
-  padding: 10rem 5.5vw 15rem 12vw
 
 .left-column
   flex: 1 1 65rem

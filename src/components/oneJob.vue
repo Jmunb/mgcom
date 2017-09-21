@@ -36,6 +36,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+@import "../assets/styles/mixins"
+
 .one-line
     display: flex
     flex-flow: row nowrap
@@ -84,6 +86,14 @@ export default {
     letter-spacing: 0.05rem
     line-height: 2rem
 
+    @include tablet
+        width: 70%
+
+    @include mobile
+        font-size: 1.2rem
+        letter-spacing: 0
+        line-height: 1.8rem
+
     &:first-of-type
         margin-top: 0
 
@@ -92,6 +102,10 @@ export default {
         letter-spacing: 0
         line-height: 4rem
         margin-top: 3.5rem
+
+        @include mobile
+            font-size: 2.2rem
+            line-height: 3.2rem
 
     &__text
         margin-top: 1.9rem
@@ -106,6 +120,9 @@ export default {
         overflow: hidden
         background: #F8F8FB
         border-radius: 2rem
+
+        @include mobile
+            width: auto
 
     &__button
         font-size: 1rem
