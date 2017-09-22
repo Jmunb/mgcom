@@ -198,6 +198,11 @@ export default {
                 background: #dedede
 
     .wrapper
+        display: flex
+        flex-flow: column nowrap
+        justify-content: flex-end
+
+    .old-wrapper
         width: 52%
         flex-grow: 1
         display: flex

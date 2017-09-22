@@ -34,10 +34,10 @@ export default {
       radius: 60,
       blur: 1,
       gradient: {
-        '.45': '#0700b0',
-        '.75': '#ff0199',
-        '.95': '#fe0000',
-        '1': '#fec200'
+        '.75': '#0A0AE2',
+        '.97': '#FF00AF',
+        '.98': '#FF00AF',
+        '1': '#FD001F'
       }
     })
 
@@ -81,11 +81,12 @@ export default {
 
 <style lang="sass">
     .heatmap-canvas
-        z-index: -1
+       // z-index: -1
 
-    .logo__first-letter,
-    .logo__last-letter
-        fill: #fff !important
+    .app--route-analitycs
+        .logo__first-letter,
+        .logo__last-letter
+            fill: #fff !important
 
     .app--route-analitycs
         color: #fff

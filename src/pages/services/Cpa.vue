@@ -87,21 +87,6 @@
             Для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
         </div>
         <div v-else>
-            У агентства большая база CPA-партнеров, собственный арбитраж и защита от фрода
-            в несколько этапов. Как и
-            <router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">маркетплейсы</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">paid search</router-link> и
-            <router-link to="/target" class="link link-target" data-cost="Р1,12">paid social</router-link>,
-            этот инструмент работает на продажи. Для лояльности стоит использовать
-            <router-link to="/media" class="link link-media" data-cost="Р2,61">медийную рекламу</router-link>,
-            для трафика на сайт —
-            <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
-            комплексные кампании лучше тоже комплексно и на всех
-            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">платформах</router-link>
-            сразу.
-
-            <!--
             У агентства большая база CPA-партнеров, собственный арбитраж и защита от фрода в несколько этапов.
             Как и <router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">прайс-площадки</router-link>,
             <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">контекстная</router-link> и
@@ -112,7 +97,6 @@
             <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
              комплексные кампании лучше тоже комплексно и на всех
             <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">платформах</router-link> сразу.
-            -->
         </div>
     </div>
 </template>
@@ -142,6 +126,8 @@ export default {
                 display: block
                 color: #FFFFFF
                 content: 'Р0,12'
+                opacity: 0
+                animation: show-balloon .2s linear .5s forwards
                 letter-spacing: 0
                 // padding: 0 1.1rem
                 text-align: center
@@ -245,7 +231,12 @@ export default {
                     top: -.6rem
                     margin-left: 2.8rem
 
+    @keyframes show-balloon
+        0%
+            opacity: 0
 
+        100%
+            opacity: 1
 </style>
 <style lang="sass" scoped>
     @import "../../assets/styles/mixins"
@@ -268,7 +259,7 @@ export default {
             white-space: nowrap
             border-radius: .3rem
             pointer-events: none
-            transition: opacity .3s linear
+            transition: opacity .2s linear
 
             @include noMobile
                 width: 7rem

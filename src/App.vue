@@ -22,7 +22,6 @@
             >A&nbsp;Performance Agency</router-link>
         </header>
 
-
         <router-view :history="history"></router-view>
 
         <div class="footer__wrapper">
@@ -73,7 +72,6 @@ export default {
     let $chatWrapper = document.querySelector('.logo')
 
     window.addEventListener('scroll', () => {
-      console.log($chatWrapper.getBoundingClientRect().top)
       this.hideLogo = $chatWrapper.getBoundingClientRect().top < -30
     })
   },
@@ -115,10 +113,64 @@ export default {
         @include mobile
             font-size: 1.8rem
             line-height: 2.6rem
+
 </style>
 <style lang="sass" scoped>
     @import "assets/styles/mixins"
 
+    /**  Modifers  **/
+    .app--route-team,
+    .app--route-partners,
+    .app--route-vacancies,
+    .app--route-customers,
+    .app--route-contacts
+        .logo__first-letter,
+        .logo__last-letter
+            fill: #0A0AE2
+
+    .app--route-customers
+        .logo,
+        .footer,
+        .mobile-logo
+            z-index: 2
+
+            @include noMobile
+                position: fixed
+
+        .logo
+            @include desktop
+                top: 7rem
+                left: 8rem
+
+            @include tablet('portrait')
+                top: 7.9rem
+                left: 7.2rem
+
+            @include tablet('landscape')
+                top: 7.1rem
+                left: 8rem
+
+        .mobile-logo
+            @include desktop
+                top: 7rem
+                right: 8rem
+
+            @include tablet('portrait')
+                top: 7.9rem
+                right: 7rem
+
+            @include tablet('landscape')
+                top: 7.1rem
+                right: 8rem
+
+        .footer
+            height: 0
+
+            @include desktop
+                bottom: 6rem
+                padding: 0 8rem
+
+    /**  Page styles  **/
     .app
         display: flex
         min-height: 100vh
@@ -159,9 +211,6 @@ export default {
         @include mobile
             // flex: 1 0 21.4rem
             flex: 1 0 6rem
-
-        &--transform .mobile-logo
-            @include mobile
 
     .logo
         top: 0
@@ -233,7 +282,6 @@ export default {
             justify-content: space-between
 
         @include noDesktop
-            right: 0
             position: fixed
             line-height: 2.3rem
             justify-content: flex-end
