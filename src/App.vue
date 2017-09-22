@@ -15,7 +15,11 @@
                     </g>
                 </svg>
             </router-link>
-            <router-link to="/" class="mobile-logo">A&nbsp;Performance Agency</router-link>
+            <router-link
+                    to="/"
+                    class="mobile-logo"
+                    v-bind:class="{'mobile-logo--rotate': hideLogo}"
+            >A&nbsp;Performance Agency</router-link>
         </header>
 
 
@@ -50,14 +54,10 @@ export default {
     return {
       path: '',
       history: [],
-      showBg: false,
-      showHm: false
+      hideLogo: false
     }
   },
   created () {
-    this.$root.$on('showHm', (state) => {
-      this.showHm = state
-    })
     this.$root.$on('showBg', (state) => {
       this.showBg = state
     })
@@ -69,6 +69,13 @@ export default {
       this.history.push({to, from})
     })
     this.path = router.history.current.path
+
+    let $chatWrapper = document.querySelector('.logo')
+
+    window.addEventListener('scroll', () => {
+      console.log($chatWrapper.getBoundingClientRect().top)
+      this.hideLogo = $chatWrapper.getBoundingClientRect().top < -30
+    })
   },
   computed: {
     isCPAPage () {
@@ -116,16 +123,18 @@ export default {
         display: flex
         min-height: 100vh
         position: relative
-        padding: 7rem 8rem 6rem
         flex-flow: column nowrap
         justify-content: space-between
-        background: red
+        // background: red
+
+        @include desktop
+            padding: 7rem 8rem 6rem
 
         @include tablet('portrait')
-            padding: 7.9rem 7rem 7rem 7.2rem
+            padding: 7.9rem 7rem 8rem 7.2rem
 
         @include tablet('landscape')
-            padding: 7.1rem 8rem 6rem
+            padding: 7.1rem 8rem 7rem
 
         @include mobile
             padding: 5.1rem 3.5rem 4.5rem 4rem
@@ -148,7 +157,11 @@ export default {
             flex: 1 0 8.5rem
 
         @include mobile
-            flex: 1 0 21.4rem
+            // flex: 1 0 21.4rem
+            flex: 1 0 6rem
+
+        &--transform .mobile-logo
+            @include mobile
 
     .logo
         top: 0
@@ -175,14 +188,14 @@ export default {
             fill: #000000
 
     .mobile-logo
-        // TODO: указать курсор
         top: 0
         right: 0
+        cursor: default
         font-size: 1.3rem
-        position: absolute
         line-height: 1.15
-        letter-spacing: 0.05rem
+        position: absolute
         text-decoration: none
+        letter-spacing: 0.05rem
 
         @include tablet
             top: -.2rem
@@ -195,11 +208,13 @@ export default {
             width: 10.4rem
             font-size: 1.2rem
             line-height: 2rem
+            transition: transform .1s linear
+            transform-origin: 100% 100% 0
 
         &--rotate
             @include mobile
                 color: #0909D4
-                transform-origin: 100% 100% 0
+                will-change: transform
                 transform: rotate(-90deg) translate(3.6rem, .6rem)
 
     .footer
@@ -232,7 +247,7 @@ export default {
 
         @include tablet('portrait')
             right: 6.3rem
-            bottom: 8.2rem
+            bottom: 8.1rem
 
         @include mobile
             font-size: 1.2rem

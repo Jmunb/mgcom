@@ -1,23 +1,35 @@
 <template>
-  <div class="wrapper">
-    <div class="contacts">
+  <div class="content">
+    <address class="address-wrapper">
 
-      <div class="one-line">
-        <a class="link" href="mailto:mgcom@mgcom.ru">mgcom@mgcom.ru</a>
+      <div class="address">
+        <p class="one-line">
+          <a class="link" href="callto://+74952133451">8 (495) 213-34-51</a><br>
+          <a class="link" href="mailto:mgcom@mgcom.ru">mgcom@mgcom.ru</a>
+        </p>
+
+        <p class="one-line">
+          107031, Москва,<br>
+          Петровка 15/13, стр. 5,<br>
+          4 этаж.
+        </p>
       </div>
 
-      <div class="one-line">
-        <a class="link" href="callto://+74952133451">+7 (495) 213-34-51</a>
-      </div>
+      <div class="address-route">
 
-      <div class="one-line">
-        107031, Москва, Петровка, дом 15/13, строение 5, 4 этаж
-      </div>
+        <p class="one-line">
+          850 метров от вас.
+        </p>
 
-      <div class="one-line">
-        5 километров от вас. Проложить маршрут на машине, метро или пеший.
+        <p class="one-line one-line--no-margin">
+          Проложить маршрут<br>
+          <a href="#" class="blue-link" @click.prev.stop>на машине</a>,
+          <a href="#" class="blue-link" @click.prev.stop>метро</a> или<br>
+          <a href="#" class="blue-link" @click.prev.stop>пешком</a>.
+        </p>
       </div>
-    </div>
+    </address>
+
     <div class="map-wrapper">
       <iframe
           class="map"
@@ -31,40 +43,105 @@
 
 <script>
 export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
+  name: 'hello'
 }
 </script>
 
 <style lang="sass" scoped>
-.wrapper
-  flex-grow: 1
-  display: flex
-  padding: 5rem 0 7rem
-  flex-flow: row nowrap
-  align-items: flex-end
-  justify-content: space-between
+  $one_column: 100% / 36
+  $one_inner_column: 100% / 30
+  $one_row_tablet_p: 100% / 44
+  $one_row_tablet_l: 100% / 36
+  $one_row_mobile: 100% / 52
 
-.contacts
-  flex: 1 1
-  margin-right: 10rem
-  color: #000000
-  font-size: 1.5rem
+  @import "../assets/styles/mixins"
 
-.map
-  border: 0
-  width: 100%
-  height: 55vh
-  background: no-repeat center center url(../assets/images/map-preloader.gif)
+  .content
+    display: flex
+    font-size: 1.3rem
+    line-height: 2rem
+    letter-spacing: .02rem
 
-  &-wrapper
-    flex: 2 1
-    margin-right: 2rem
+    @include desktop
+      flex-grow: 1
+      align-self: center
+      flex-flow: row nowrap
+      width: $one_column * 30
+      justify-content: space-between
 
-.one-line
-  margin-top: 3rem
+    @include noDesktop
+      flex-flow: column nowrap
+      justify-content: flex-end
+
+    @include tablet
+      width: $one_column * 24
+
+    @include mobile
+      flex-grow: 1
+      width: $one_column * 27
+
+  .address
+    @include tablet
+      padding-right: $one_inner_column * 4
+
+    &-wrapper
+      display: flex
+      font-style: normal
+
+      @include desktop
+        flex-grow: 1
+        flex-flow: column nowrap
+        justify-content: space-between
+        padding-right: $one_inner_column * 2
+
+      @include tablet
+        white-space: nowrap
+        width: $one_column * 24
+        flex-flow: row nowrap
+        justify-content: flex-start
+
+      @include tablet('portrait')
+        padding-bottom: $one_row_tablet_p * 5
+
+      @include tablet('landscape')
+        padding-bottom: $one_row_tablet_l * 5
+
+      @include mobile
+        padding-bottom:
+        flex-flow: column nowrap
+        justify-content: flex-start
+        padding-bottom: $one_row_mobile * 4
+
+  .map
+    border: 0
+    width: 100%
+    height: 100%
+    background: no-repeat center center / 10rem url(../assets/images/spinner.gif)
+    border-radius: .4rem
+
+    &-wrapper
+      @include desktop
+        flex: 0 0 $one_inner_column * 18
+
+      @include tablet('portrait')
+        height: calc( (100vh - 15.9rem) * (6 / 11) )
+
+      @include tablet('landscape')
+        height: calc( (100vh - 14.1rem) * (4 / 9) )
+
+      @include mobile
+        height: calc( (100vh - 9.6rem) * (23 / 52) )
+
+  .blue-link
+    color: #0A0AE2
+
+  .one-line
+    margin: 0 0 2rem
+
+    &:last-child
+      @include tablet
+        margin: 0
+
+    &--no-margin
+      margin: 0
 </style>
