@@ -105,7 +105,7 @@
   }
 
   export default {
-    name: 'Vacancies',
+    name: 'vacancies',
     data () {
       vacanciesTags.forEach(item => {
         item.isActive = false
