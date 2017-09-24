@@ -81,7 +81,10 @@ export default {
 
 <style lang="sass">
     .heatmap-canvas
-       // z-index: -1
+       z-index: -1
+
+    .analytics-layout
+        color: #F8F8F9
 
     .app--route-analitycs
         .logo__first-letter,
@@ -94,6 +97,7 @@ export default {
 
         a
             color: #fff
+            text-decoration: underline
 
 </style>
 <style lang="sass" scoped>

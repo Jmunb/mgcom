@@ -265,7 +265,8 @@ export default {
 
     .about,
     .result
-        width: 80%
+        @include mobile
+            width: 80%
 
     .about
         margin-top: 2.2rem

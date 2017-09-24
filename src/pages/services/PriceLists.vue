@@ -1,6 +1,5 @@
 <template>
-  <div v-if="true" class="test"></div>
-  <div v-else class="wrapper">
+  <div class="wrapper">
     <div class="left-column">
       <div class="slider" v-bind:class="'slider--' + sliderIndex">
         <div class="one-card" v-bind:class="'one-card--' + photoIndex"></div>

@@ -148,6 +148,37 @@ export default {
         .logo__last-letter
             fill: #0A0AE2
 
+    .app--route-contextus
+        @include desktop
+            overflow: hidden
+
+            .footer
+                font-size: 1.3rem
+                letter-spacing: 0.05rem
+                line-height: 1.3rem
+
+                &__link-1,
+                &__link-2,
+                &__link-3
+                    position: absolute
+                    left: 0
+                    bottom: 0
+                    transform-origin: 0 100%
+
+                &__link-1
+                    transform: rotate(-90deg) translateY(100%)
+
+                &__link-2
+                    transform: rotate(-90deg) translateY(250%)
+
+                &__link-3
+                    transform: rotate(-90deg) translateY(400%)
+
+                &__last-links
+                    position: absolute
+                    right: 0
+                    border: 0
+
     .app--route-customers
         .logo,
         .footer,
@@ -190,8 +221,12 @@ export default {
                 bottom: 6rem
                 padding: 0 8rem
 
+    .app--route-analitycs
+        z-index: 0
+
     .app--route-seo .page-content
-        width: 100%
+        @include mobile
+            width: 100%
 
     /**  Page styles  **/
     .app
@@ -219,7 +254,7 @@ export default {
         left: 0
         right: 0
         bottom: 0
-        position: fixed
+        position: fixed !important
         pointer-events: none
 
     .header
