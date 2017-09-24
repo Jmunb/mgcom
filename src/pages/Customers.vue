@@ -1,5 +1,5 @@
 <template>
-  <div class="customers">
+  <div class="page-absolute">
     <div class="customer customer-citroen"></div>
     <div class="customer customer-worldclass"></div>
     <div class="customer customer-ecco"></div>
@@ -22,30 +22,6 @@ export default {
 
 <style lang="sass" scoped>
   @import "../assets/styles/mixins"
-
-  .customers
-    z-index: 1
-    display: flex
-    flex-flow: column nowrap
-    justify-content: flex-start
-    align-items: center
-
-    @include noMobile
-      width: 100%
-
-    @include desktop
-      margin: 0 -8rem
-
-    @include tablet('portrait')
-      margin: 0 -7rem 0 -7.2rem
-
-    @include tablet('landscape')
-      margin: 0 -8rem
-
-    @include mobile
-      padding: 1rem 0
-      margin: 0 -3.5rem 0 -4rem
-      overflow: hidden
 
   .customer
     filter: blur(.7rem)
