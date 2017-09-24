@@ -190,6 +190,9 @@ export default {
                 bottom: 6rem
                 padding: 0 8rem
 
+    .app--route-seo .page-content
+        width: 100%
+
     /**  Page styles  **/
     .app
         display: flex

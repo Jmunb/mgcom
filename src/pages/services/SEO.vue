@@ -26,17 +26,22 @@
             <div class="about__title">Вместе с «seo» ищут:</div>
             <div class="about__columns">
                 <div class="about__column">
-                    <router-link v-for="route in linksMap.first" :to="links[route].link" class="about__link" :key="links[route].id">
+                    <router-link v-for="route in linksMap[0]" :to="links[route].link" class="about__link" :key="links[route].id">
                         {{links[route].title}}
                     </router-link>
                 </div>
                 <div class="about__column">
-                    <router-link v-for="route in linksMap.second" :to="links[route].link" class="about__link" :key="links[route].id">
+                    <router-link v-for="route in linksMap[1]" :to="links[route].link" class="about__link" :key="links[route].id">
                         {{links[route].title}}
                     </router-link>
                 </div>
                 <div class="about__column">
-                    <router-link v-for="route in linksMap.third" :to="links[route].link" class="about__link" :key="links[route].id">
+                    <router-link v-for="route in linksMap[2]" :to="links[route].link" class="about__link" :key="links[route].id">
+                        {{links[route].title}}
+                    </router-link>
+                </div>
+                <div class="about__column">
+                    <router-link v-for="route in linksMap[3]" :to="links[route].link" class="about__link" :key="links[route].id">
                         {{links[route].title}}
                     </router-link>
                 </div>
@@ -49,50 +54,57 @@
 let links = [
   {id: 1, title: 'контекст', link: '/contextus'}, // 0
   {id: 2, title: 'веб-аналитика', link: '/analitycs'}, // 1
-  {id: 3, title: 'медийная реклама', link: '/media'}, // 2
-  {id: 4, title: 'таргетинг в соцсетях', link: '/target'}, // 3
-  {id: 5, title: 'прайс-площадки', link: '/price-lists'}, // 4
+  {id: 3, title: 'баннеры', link: '/media'}, // 2
+  {id: 4, title: 'таргетинг', link: '/target'}, // 3
+  {id: 5, title: 'маркетплейсы', link: '/price-lists'}, // 4
   {id: 6, t: 'SEO', title: 'smm', link: '/seo'}, // 5
   {id: 7, title: 'мобайл', link: '/mobile-ads'}, // 6
-  {id: 8, title: 'CPA', link: '/cpa'} // 7
+  {id: 8, title: 'cpa', link: '/cpa'} // 7
 ]
 
 let source = {
-  'index': {
-    first: [0, 3, 6],
-    second: [1, 4, 7],
-    third: [2, 5]
-  },
-  'media': {
-    first: [2, 3, 4],
-    second: [5, 6, 1],
-    third: [7, 0]
-  },
-  'cpa': {
-    first: [7, 4, 0],
-    second: [1, 3, 6],
-    third: [2, 5]
-  },
-  'target': {
-    first: [3, 0, 2],
-    second: [1, 5, 4],
-    third: [6, 7]
-  },
-  'price-lists': {
-    first: [4, 0, 7],
-    second: [6, 1, 3],
-    third: [2, 5]
-  },
-  'mobile-ads': {
-    first: [6, 0, 3],
-    second: [2, 1, 4],
-    third: [7, 5]
-  },
-  'analitycs': {
-    first: [1, 3, 0],
-    second: [6, 4, 7],
-    third: [2, 5]
-  }
+  'index': [
+    [0, 3],
+    [1, 4],
+    [6, 7],
+    [2, 5]
+  ],
+  'media': [
+    [0, 3],
+    [1, 4],
+    [6, 7],
+    [2, 5]
+  ],
+  'cpa': [
+    [0, 3],
+    [1, 4],
+    [6, 7],
+    [2, 5]
+  ],
+  'target': [
+    [0, 3],
+    [1, 4],
+    [6, 7],
+    [2, 5]
+  ],
+  'price-lists': [
+    [0, 3],
+    [1, 4],
+    [6, 7],
+    [2, 5]
+  ],
+  'mobile-ads': [
+    [0, 3],
+    [1, 4],
+    [6, 7],
+    [2, 5]
+  ],
+  'analitycs': [
+    [0, 3],
+    [1, 4],
+    [6, 7],
+    [2, 5]
+  ]
 }
 
 export default {
@@ -160,6 +172,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+    @import "../../assets/styles/mixins"
+
     .select
         &__wrapper
             outline: 0
@@ -176,12 +190,12 @@ export default {
             top: 100%
             margin: 0
             z-index: 1
-            padding: 0
             width: 100%
             opacity: 0
             list-style: none
             position: absolute
             background: #fff
+            padding: 1.4rem 0
             visibility: hidden
             transition: opacity .1s ease-in, visibility .2s step-end
             border-top: 1px solid rgba(28,0,0,.05)
@@ -190,17 +204,22 @@ export default {
         &__item
             cursor: pointer
             padding: 0 2rem
-            line-height: 4rem
             font-size: 1.4rem
+            line-height: 2.2rem
 
             &.active,
             &:hover
-                background: #dedede
+                background: #F8F8FB
 
     .wrapper
         display: flex
         flex-flow: column nowrap
-        justify-content: flex-end
+
+        @include desktop
+            padding-top: calc( (50vh - 17rem) * .375)
+
+        @include tablet('portrait')
+            flex: .5 0 45%
 
     .old-wrapper
         width: 52%
@@ -223,37 +242,75 @@ export default {
         position: relative
 
     .result
-        margin-top: 5rem
+        margin-top: 2.1rem
         padding: 0 1rem 0 2rem
+        letter-spacing: 0
+        line-height: 2.2rem
+
+        @include tablet
+            margin-top: 3.9rem
+
+        @include tablet('portrait')
+            flex-grow: 1
 
         &__title
-            color: #2649db
-            font-size: 1.8rem
+            font-size: 1.6rem
+            color: #2749DC
+            letter-spacing: 0
+            line-height: 2.2rem
 
         &__text
-            line-height: 1.4
-            margin-top: 2rem
-            font-size: 1.5rem
+            margin-top: 1.6rem
+            font-size: 1.3rem
+
+    .about,
+    .result
+        width: 80%
 
     .about
-        margin-top: 5rem
+        margin-top: 2.2rem
         padding-left: 2rem
         opacity: .4
         color: #000000
-        font-size: 1.5rem
+        font-size: 1.3rem
+        letter-spacing: 0
+        line-height: 2.2rem
 
-        &__title
-            line-height: 4rem
+        @include tablet
+            margin-top: 3.3rem
+
+        @include mobile
+            font-size: 1.2rem
+            line-height: 2rem
 
         &__columns
             display: flex
-            margin-top: 1rem
+            margin-top: 1.5rem
             flex-flow: row nowrap
+            justify-content: space-between
+
+            @include mobile
+                justify-content: flex-start
+                flex-flow: row wrap
+
+            @include tablet
+                margin-top: 1.7rem
 
         &__column
             margin-right: 4rem
+            @include mobile
+                flex: 0 0 50%
+                margin: 0
+
 
         &__link
             line-height: 3rem
             display: block
+
+            @include tablet
+                line-height: 2.2rem
+
+            @include mobile
+                white-space: nowrap
+
 </style>
