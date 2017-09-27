@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>MGCom</title>
+        <meta name="description" content="MGCom">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+
+        <!--<link rel="apple-touch-icon" href="icon.png">-->
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="./normalize.css?t=1qw23">
+        <script>
+            window.addEventListener("load", function() { 
+                hideAddressBar();
+                window.addEventListener("orientationchange", function () {
+                    hideAddressBar();
+                }, false);
+            });
+
+            function hideAddressBar() {
+                setTimeout(function () {
+                    window.scrollTo(0, window.innerHeight);
+                }, 100);
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="center">Реновация.</div>
+        <div class="footer">
+            <a class="link" href="mailto:mgcom@mgcom.ru">mgcom@mgcom.ru</a>
+            <span class="right-wrapper">
+                <a class="link" href="callto://+74952133451">8 (495) 213-34-51</a>
+                <div>Петровка 15/13, стр. 5</div>
+            </span>
+        </div>
+    </body>
+</html>
