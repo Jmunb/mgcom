@@ -87,16 +87,18 @@
             Для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
         </div>
         <div v-else>
-            У агентства большая база CPA-партнеров, собственный арбитраж и защита от фрода в несколько этапов.
-            Как и <router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">прайс-площадки</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">контекстная</router-link> и
-            <router-link to="/target" class="link link-target" data-cost="Р1,12">таргетированная реклама в соцсетях</router-link>,
-            этот инструмент работает на продажи. Для имиджа и лояльности стоит использовать
-            <router-link to="/media" class="link link-media" data-cost="Р2,61">медийную рекламу и программатик</router-link>,
-            для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
+            У агентства большая база CPA-партнеров, собственный арбитраж и&nbsp;защита от&nbsp;фрода
+            в&nbsp;несколько этапов. Как и&nbsp;<router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">маркетплейсы</router-link>,
+            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">paid search</router-link>
+            и&nbsp;<router-link to="/target" class="link link-target" data-cost="Р1,12">paid social</router-link>,
+            этот инструмент работает на&nbsp;продажи. Для лояльности стоит использовать
+            <router-link to="/renovation" class="link link-media" data-cost="Р2,61">медийную рекламу</router-link>,
+            для трафика на&nbsp;сайт —
+            <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
             <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
-             комплексные кампании лучше тоже комплексно и на всех
-            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">платформах</router-link> сразу.
+            комплексные кампании лучше тоже комплексно и&nbsp;на&nbsp;всех
+            <router-link to="/renovation" class="link link-mobile-ads" data-cost="Р1,23">платформах</router-link>
+            сразу.
         </div>
     </div>
 </template>

@@ -7,25 +7,13 @@
           <a class="link" href="callto://+74952133451">8 (495) 213-34-51</a><br>
           <a class="link" href="mailto:mgcom@mgcom.ru">mgcom@mgcom.ru</a>
         </p>
-
-        <p class="one-line">
-          107031, Москва,<br>
-          Петровка 15/13, стр. 5,<br>
-          4 этаж.
-        </p>
       </div>
 
       <div class="address-route">
-
-        <p class="one-line">
-          850 метров от вас.
-        </p>
-
         <p class="one-line one-line--no-margin">
-          Проложить маршрут<br>
-          <a href="#" class="blue-link" @click.prev.stop>на машине</a>,
-          <a href="#" class="blue-link" @click.prev.stop>метро</a> или<br>
-          <a href="#" class="blue-link" @click.prev.stop>пешком</a>.
+          107031, Москва,<br>
+          Петровка 15/13, стр. 5,<br>
+          4 этаж.
         </p>
       </div>
     </address>
@@ -63,10 +51,11 @@ export default {
     letter-spacing: .02rem
 
     @include desktop
-      flex-grow: 1
+      flex: 0 0 40vh
       align-self: center
       flex-flow: row nowrap
       width: $one_column * 30
+      align-items: stretch
       justify-content: space-between
 
     @include noDesktop

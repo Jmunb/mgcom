@@ -2,8 +2,8 @@
     <li class="one-job">
         <div class="one-job__num">{{ index }} / {{ jobCount }}</div>
         <div class="one-job__title">{{ job.title }}</div>
-        <div class="one-job__text">{{ job.text }}</div>
-        <div class="one-job__send-block">
+        <div class="one-job__text" v-html="job.text"></div>
+        <div v-if="false" class="one-job__send-block">
             <div v-if="showForm" class="one-job__form">
                 <div class="one-line">
                     <div class="one-line__label">От:</div>
@@ -35,6 +35,14 @@ export default {
 }
 </script>
 
+<style lang="sass">
+    .one-job__demands
+        font-size: 1.2rem
+        margin: 1.9rem 0 1.9rem
+
+    .one-job__demand
+        margin-bottom: 1rem
+</style>
 <style lang="sass" scoped>
 @import "../assets/styles/mixins"
 

@@ -1,17 +1,17 @@
 <template>
     <div class="page-content analytics-layout">
-        MGCom решает любые задачи веб-аналитики.
-        Анализируем каналы и источники мультиканально, пост-клик и пост-вью конверсии.
-        Готовим наглядные отчёты. Большой опыт настройки колл-трекинга (K50, CoMagic, Call touch)
-        и работы с платформами A/B-тестирования и персонализации сайтов. Сертифицированы Яндексом и Google.
-        Также умеем
-        <router-link to="/contextus" class="link">контекст</router-link>,
-        <router-link to="/seo" class="link">SEO</router-link>,
-        <router-link to="/media" class="link">медийку</router-link>,
-        <router-link to="/target" class="link">таргетинг в соцсетях</router-link>,
-        <router-link to="/price-lists" class="link">прайс-площадки</router-link>,
-        <router-link to="/analitycs" class="link">аналитику</router-link> и
-        <router-link to="/mobile-ads" class="link">мобильную рекламу</router-link>.
+        Агентство помогает крупному и&nbsp;среднему
+        бизнесу привлекать клиентов и&nbsp;проводить их
+        по&nbsp;воронке с&nbsp;помощью инструментов перфоманс-маркетинга:
+        <router-link to="/contextus" class="link">paid search</router-link>
+        и&nbsp;<router-link to="/target" class="link">paid social</router-link>,
+        <router-link to="/renovation" class="link">медийной рекламы и programmatic</router-link>,
+        <router-link to="/cpa" class="link">CPA</router-link>
+        и&nbsp;<router-link to="/price-lists" class="link">маркетплейсов</router-link>,
+        <router-link to="/analitycs" class="link">аналитику</router-link>
+        и&nbsp;<router-link to="/seo" class="link">SEO</router-link>
+        на&nbsp;десктопе и в&nbsp;мобильном. Умеем работать как с&nbsp;масштабными проектами
+        и&nbsp;стратегиями, так и с&nbsp;отдельными задачами.
     </div>
 </template>
 

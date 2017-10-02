@@ -2,6 +2,14 @@
   font-family: 'HeliosExt';
   src: local('HeliosExt'),
   url('https://nomail.com.ua/files/woff/dac72d9a84f16e142dfbe484ad6c9212.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-
+@font-face {
+  font-family: 'HeliosExt';
+  src: url('../fonts/subset-HeliosExt-Bold.woff2') format('woff2'),
+  url('../fonts/subset-HeliosExt-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}

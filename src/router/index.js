@@ -7,6 +7,7 @@ import Customers from '@/pages/Customers'
 import Contacts from '@/pages/Contacts'
 import Team from '@/pages/Team'
 import Vacancies from '@/pages/Vacancies'
+import Renovation from '@/pages/Renovation'
 
 import Media from '@/pages/services/Media'
 import Target from '@/pages/services/Target'
@@ -26,6 +27,11 @@ export default new Router({
       path: '/',
       name: 'index',
       component: Index
+    },
+    {
+      path: '/renovation',
+      name: 'renovation',
+      component: Renovation
     },
 
     {

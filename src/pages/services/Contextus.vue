@@ -1,9 +1,9 @@
 <template>
   <div class="page-content contextus">
     <div class="banner banner--top">
-      <router-link to="/media" class="banner__title">Медийная реклама</router-link>
-      <router-link to="/media" class="banner__link">mgcom.ru/media</router-link>
-      <router-link to="/media" class="banner__text">
+      <router-link to="/renovation" class="banner__title">Медийная реклама</router-link>
+      <router-link to="/renovation" class="banner__link">mgcom.ru/media</router-link>
+      <router-link to="/renovation" class="banner__text">
         Call tracking, А/В-тесты и понятные отчёты. Мультиканальная аналитика
       </router-link>
     </div>

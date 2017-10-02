@@ -1,16 +1,13 @@
 <template>
     <div class="page-content">
-        Агентство помогает крупному и среднему бизнесу привлекать клиентов и проводить их по воронке,
-        увеличивать продажи и охват, повышать знание и лояльность – с помощью перфоманс-маркетинга – комбинируя разные инструменты:
-        <router-link to="/contextus" class="link">контекстную</router-link> и
-        <router-link to="/media" class="link">медийную рекламу</router-link>,
-        <router-link to="/target" class="link">таргетированную рекламу в соцсетях</router-link>,
-        <router-link to="/cpa" class="link">CPA</router-link> и
-        <router-link to="/price-lists" class="link">маркетплейсы</router-link>,
-        <router-link to="/analitycs" class="link">аналитику</router-link> и
-        <router-link to="/seo" class="link">SEO</router-link>, на десктопе и в
-        <router-link to="/mobile-ads" class="link">мобильном</router-link>.
-        Умеем работать с масштабными проектами, стратегиями и отдельными задачами.
+        Агентство помогает крупному и&nbsp;среднему бизнесу&nbsp;привлекать клиентов и&nbsp;проводить их по&nbsp;воронке с&nbsp;помощью инструментов перфоманс-маркетинга:
+        <router-link to="/contextus" class="link">paid search</router-link>
+        и&nbsp;<router-link to="/target" class="link">paid social</router-link>,
+        <router-link to="/media" class="link">медийной рекламы и&nbsp;programmatic</router-link>,
+        <router-link to="/price-lists" class="link">маркетплейсов</router-link> и&nbsp;<router-link to="/cpa" class="link">CPA</router-link>,
+        <router-link to="/seo" class="link">SEO</router-link> и&nbsp;<router-link to="/analitycs" class="link">аналитики</router-link>
+        на&nbsp;десктопе и&nbsp;<router-link to="/mobile-ads" class="link">в&nbsp;мобильном</router-link>.
+        Умеем работать как с&nbsp;масштабными проектами и&nbsp;стратегиями, так и&nbsp;с&nbsp;отдельными задачами.
     </div>
 </template>
 

@@ -126,7 +126,7 @@
         })
 
         return !activeIds.length ? this.vacancies : this.vacancies.filter(item => {
-          return IntersecArrays(item.tags, activeIds).length
+          return IntersecArrays(item.tags, activeIds).length === activeIds.length
         })
       }
     },
@@ -191,6 +191,7 @@
   $one_column: 100% / 36
 
   .wrapper
+    flex-grow: 1
     display: flex
     position: relative
     flex-flow: row nowrap
@@ -198,7 +199,7 @@
     justify-content: space-between
 
     @include desktop
-      margin-top: -17rem
+      margin-top: -7rem
       width: $one_column * 22
       align-self: center
 
@@ -235,7 +236,7 @@
 
   .content
     @include desktop
-      padding: 6.9rem 6.5rem 4.7rem
+      padding: 6.9rem 6.5rem 14rem
 
     @include tablet
       display: flex
