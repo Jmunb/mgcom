@@ -1,52 +1,69 @@
 <template>
   <div class="partners" v-bind:class="'partners--position-' + activePartner">
     <div class="one-partner one-partner-1">
-      <div
-              @click.stop="activePartner = 1"
+      <a
+              href="http://reactive-agency.ru/"
+              target="_blank"
+              onclick=""
+              @click.stop="setActivePartner(1, $event)"
               v-bind:class="{'one-partner__logo--active': activePartner === 1}"
               class="one-partner__logo one-partner__logo-1"
-      ></div>
+      >
+        <div class="one-partner__logo-bg one-partner__logo-bg-1"></div>
+      </a>
       <div class="one-partner__text" v-bind:class="{'one-partner__text--active': activePartner === 1}">
         С 2013 года мы тесно сотрудничаем с агентством Reactive.
-        Качественная экспертиза во всех видах таргетированной рекламы и  и постоянно растущая команда спецов, помогли нам реализовать много совместных проектов для общих клиентов.
-        МВидео, Связной, Билайн, Альфа-банк, Открытие, Из рук в руки,  Google и многие-многие другие.
+        Качественная экспертиза во всех видах таргетированной
+        рекламы и и постоянно растущая команда специалистов помогли
+        нам реализовать много совместных проектов.
       </div>
     </div>
     <div class="one-partner one-partner-2">
-      <div
-              @click.stop="activePartner = 2"
+      <a
+              href="http://www.e-promo.ru/"
+              target="_blank"
+              onclick=""
+              @click.stop="setActivePartner(2, $event)"
               v-bind:class="{'one-partner__logo--active': activePartner === 2}"
               class="one-partner__logo one-partner__logo-2"
-      ></div>
+      >
+        <div class="one-partner__logo-bg one-partner__logo-bg-2"></div>
+      </a>
       <div class="one-partner__text" v-bind:class="{'one-partner__text--active': activePartner === 2}">
         Digital Performance Marketing Agency с
-        офисами в Москве и Нижнем новгороде.
+        офисами в Москве и Нижнем Новгороде.
         Специализируется на комплексных
         решениях в интернет-маркетинге для
         разных отраслей.
       </div>
     </div>
     <div class="one-partner one-partner-3">
-      <div
-              @click.stop="activePartner = 3"
+      <a
+              href="https://biplane.ru/"
+              target="_blank"
+              onclick=""
+              @click.stop="setActivePartner(3, $event)"
               v-bind:class="{'one-partner__logo--active': activePartner === 3}"
               class="one-partner__logo one-partner__logo-3"
-      ></div>
+      >
+        <div class="one-partner__logo-bg one-partner__logo-bg-3"></div>
+      </a>
       <div class="one-partner__text" v-bind:class="{'one-partner__text--active': activePartner === 3}">
-        Биплан помогает бизнесу зарабатывать
-        и достигать целей. Комбинируют каналы
-        маркетинговых коммуникаций, специализи-
-        руются на SEO и контекстной рекламе.
-        Отчитываются за итоговые показатели
-        прибыли.
+        Маркетинговое агентство Биплан помогает бизнесу расти и зарабатывать с помощью комбинации различных маркетинговых каналов.
+        Специализация: контекстная и таргетированная реклама, SEO и аналитика.
       </div>
     </div>
     <div class="one-partner one-partner-4">
-      <div
-              @click.stop="activePartner = 4"
+      <a
+              href="http://www.tactio.ru/"
+              target="_blank"
+              onclick=""
+              @click.stop="setActivePartner(4, $event)"
               v-bind:class="{'one-partner__logo--active': activePartner === 4}"
               class="one-partner__logo one-partner__logo-4"
-      ></div>
+      >
+        <div class="one-partner__logo-bg one-partner__logo-bg-4"></div>
+      </a>
       <div class="one-partner__text" v-bind:class="{'one-partner__text--active': activePartner === 4}">
         Агентство мультиканальной интернет-рекламы, на рынке с 2007 года. Специализируется на клиентах финансового сектора и недвижимости.ко
       </div>
@@ -60,6 +77,14 @@ export default {
   data () {
     return {
       activePartner: 2
+    }
+  },
+  methods: {
+    setActivePartner (active, $event) {
+      if (this.activePartner !== active) {
+        $event.preventDefault()
+        this.activePartner = active
+      }
     }
   }
 }
@@ -80,6 +105,9 @@ export default {
       flex-grow: 1
       padding: calc(50vh - 10rem) 0 5rem
       justify-content: space-between
+
+      &--position-2 .one-partner-4 .one-partner__logo::after
+        white-space: initial
 
       &--position-1 .one-partner-1,
       &--position-2 .one-partner-2,
@@ -193,8 +221,10 @@ export default {
         order: 0
 
     &__logo
+      display: block
       cursor: pointer
-      background: no-repeat center center / contain
+      position: relative
+      text-decoration: none
 
       @include desktop
         height: 5.9rem
@@ -205,41 +235,72 @@ export default {
       @include mobile
         margin-bottom: 2.1rem
 
+      &::after
+        top: 100%
+        opacity: .66
+        font-size: 1rem
+        white-space: nowrap
+        padding-top: .2rem
+        position: absolute
+        content: 'перейти на сайт'
+
+        @include mobile
+          opacity: 0
+
+      &-bg
+        width: 100%
+        height: 100%
+        background: no-repeat center center / contain
+
+        &-1
+          background-image: url(../assets/images/partners/reactive_logo2.svg?t=1)
+
+        &-2
+          background-image: url(../assets/images/partners/e-promo.svg?t=1)
+
+        &-3
+          background-image: url(../assets/images/partners/biplane.svg?t=1)
+
+        &-4
+          background-image: url(../assets/images/partners/tactio2.svg?t=1)
+
       &-1
         width: 17.2rem
-        background-image: url(../assets/images/partners/reactive_logo2.svg?t=1)
 
       &-2
         width: 11.2rem
-        background-image: url(../assets/images/partners/e-promo.svg?t=1)
 
       &-3
         width: 14.3rem
-        background-image: url(../assets/images/partners/biplane.svg?t=1)
 
       &-4
         width: 5.3rem
-        background-image: url(../assets/images/partners/tactio2.svg?t=1)
 
         @include tablet
           width: 4.9rem
 
+      &:hover::after
+        color: #0A0AE2
 
-      &:hover,
-      &--active
+      &--active::after
+        opacity: 1
+        color: #0A0AE2
+
+      &:hover .one-partner__logo-bg,
+      &--active .one-partner__logo-bg
         background: #0A0AE2
         mask: no-repeat center center / contain
 
-        &.one-partner__logo-1
+        &.one-partner__logo-bg-1
           mask-image: url(../assets/images/partners/reactive_logo2.svg?t=1)
 
-        &.one-partner__logo-2
+        &.one-partner__logo-bg-2
           mask-image: url(../assets/images/partners/e-promo.svg?t=1)
 
-        &.one-partner__logo-3
+        &.one-partner__logo-bg-3
           mask-image: url(../assets/images/partners/biplane.svg?t=1)
 
-        &.one-partner__logo-4
+        &.one-partner__logo-bg-4
           mask-image: url(../assets/images/partners/tactio2.svg?t=1)
 
     &__text

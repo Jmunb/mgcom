@@ -1,5 +1,8 @@
 <template>
-    <div class="app" v-bind:class="'app--route-' + $router.currentRoute.name">
+    <div
+            class="app"
+            v-bind:class="[{'app--color-bg': bgIsColor}, 'app--route-' + $router.currentRoute.name]"
+    >
         <div class="bg"></div>
         <header class="header">
             <router-link to="/" class="logo">
@@ -19,7 +22,7 @@
                     to="/"
                     class="mobile-logo"
                     v-bind:class="{'mobile-logo--rotate': hideLogo}"
-            >A&nbsp;Performance Agency</router-link>
+            >Performance Agency</router-link>
         </header>
 
         <router-view :history="history"></router-view>
@@ -53,12 +56,13 @@ export default {
     return {
       path: '',
       history: [],
-      hideLogo: false
+      hideLogo: false,
+      bgIsColor: false
     }
   },
   created () {
-    this.$root.$on('showBg', (state) => {
-      this.showBg = state
+    this.$root.$on('bgIsColor', (state) => {
+      this.bgIsColor = state
     })
   },
   mounted () {
@@ -71,7 +75,8 @@ export default {
 
     let $chatWrapper = document.querySelector('.logo')
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', (...args) => {
+      console.log(...args)
       this.hideLogo = $chatWrapper.getBoundingClientRect().top < -30
     })
   },
@@ -86,10 +91,18 @@ export default {
 }
 </script>
 
+<style src="./assets/styles/main.scss" lang="sass"></style>
+<style lang="sass">
+    $one_column: 100% / 36
+
+    @import "assets/styles/mixins"
+
     .page-content
-        font-size: 2.8rem
+        // font-size: 2.8rem
+        // line-height: 4rem
         letter-spacing: 0
-        line-height: 4rem
+        font-size: 2.6rem
+        line-height: 3.71429rem
 
         @include desktop
             padding-left: $one_column
@@ -130,6 +143,15 @@ export default {
 </style>
 <style lang="sass" scoped>
     @import "assets/styles/mixins"
+
+    .app--route-partners
+        .header
+            @include mobile
+                flex: 0 0 6rem
+
+        .partners
+            @include mobile
+                flex: 1 0
 
     /**  Modifers  **/
     .app--route-team,
@@ -236,6 +258,12 @@ export default {
                 right: 8rem
                 // top: -3.5rem
 
+    .app--route-mobile-ads
+        @include mobile
+            .mobile-logo,
+            .footer__wrapper
+                display: none
+
     .app--route-target
         @include mobile
             .mobile-logo--rotate
@@ -313,6 +341,18 @@ export default {
 
         @include mobile
             padding: 5.1rem 3.5rem 4.5rem 4rem
+
+        &--color-bg
+            .header,
+            .footer
+                color: #fff
+
+                a
+                    color: #fff
+
+            .logo__first-letter,
+            .logo__last-letter
+                fill: #ffffff
 
     .bg
         top: 0

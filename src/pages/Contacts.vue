@@ -7,31 +7,127 @@
           <a class="link" href="callto://+74952133451">8 (495) 213-34-51</a><br>
           <a class="link" href="mailto:mgcom@mgcom.ru">mgcom@mgcom.ru</a>
         </p>
-      </div>
 
-      <div class="address-route">
-        <p class="one-line one-line--no-margin">
+        <p class="one-line">
           107031, Москва,<br>
           Петровка 15/13, стр. 5,<br>
           4 этаж.
         </p>
       </div>
+
+      <div class="address-route" v-if="position">
+
+        <p class="one-line" v-if="destination">
+          {{destination}} метров от вас.
+        </p>
+
+        <p class="one-line one-line--no-margin">
+          Проложить маршрут<br>
+          <a href="#" class="blue-link" @click.prev.stop="getDirections('DRIVING')">на машине</a>,
+          <a href="#" class="blue-link" @click.prev.stop="getDirections('TRANSIT')">метро</a> или<br>
+          <a href="#" class="blue-link" @click.prev.stop="getDirections('WALKING')">пешком</a>.
+        </p>
+      </div>
+
     </address>
 
     <div class="map-wrapper">
-      <iframe
-          class="map"
-          frameborder="0"
-          allowfullscreen
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4116.7725926648!2d37.61318038001519!3d55.76395284768151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a43bcb77a27%3A0x6061a9dd8f14608b!2z0J_QtdGC0YDQvtCy0LrQsCDRg9C7LiwgMTUvMTMg0YHRgtGA0L7QtdC90LjQtSA1LCDQnNC-0YHQutCy0LAsIDEyNTAwOQ!5e0!3m2!1sru!2sru!4v1502637867806"
-      ></iframe>
+      <div id="map"></div>
     </div>
   </div>
 </template>
 
 <script>
+import MapStyles from '../maps-style.json'
+
 export default {
-  name: 'hello'
+  name: 'hello',
+  data () {
+    return {
+      map: null,
+      uluru: {lat: 55.763937, lng: 37.616309},
+      marker: null,
+      marker1: null,
+      position: null,
+      destination: null,
+      directionsDisplay: null
+    }
+  },
+  mounted () {
+    this.directionsDisplay = new window.google.maps.DirectionsRenderer()
+
+    this.map = new window.google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      minZoom: 11,
+      center: this.uluru,
+      mapTypeControl: false,
+      fullscreenControl: false,
+      styles: MapStyles
+    })
+
+    this.directionsDisplay.setMap(this.map)
+
+    let marker = new window.google.maps.Marker({
+      icon: 'http://mgcom.ru//static/marker.svg?v=123',
+      position: this.uluru,
+      map: this.map
+    })
+    setTimeout(() => {
+      this.marker = marker
+      this.getLocation()
+    }, 1000)
+  },
+  methods: {
+    getLocation () {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          let pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+
+          this.position = pos
+
+          let marker = new window.google.maps.Marker({
+            icon: 'http://mgcom.ru//static/point.svg',
+            position: pos,
+            map: this.map
+          })
+          this.getDistance()
+          this.marker1 = marker
+        })
+      }
+    },
+    getDistance () {
+      let origin = new window.google.maps.LatLng(this.uluru.lat, this.uluru.lng)
+      let destination = new window.google.maps.LatLng(this.position.lat, this.position.lng)
+      let result = window.google.maps.geometry.spherical.computeDistanceBetween(origin, destination)
+      if (result) {
+        this.destination = Math.round(result)
+      }
+    },
+    getDirections (type) {
+      let origin = new window.google.maps.LatLng(this.uluru.lat, this.uluru.lng)
+      let destination = new window.google.maps.LatLng(this.position.lat, this.position.lng)
+      let directionsService = new window.google.maps.DirectionsService()
+      let request = {
+        origin: origin,
+        destination: destination,
+        travelMode: type,
+        transitOptions: {
+          modes: ['SUBWAY']
+        }
+      }
+      directionsService.route(request, (response, status) => {
+        console.log(response, status)
+        if (status === 'OK') {
+          this.marker.setMap(null)
+          this.marker1.setMap(null)
+          this.directionsDisplay.setDirections(response)
+        }
+      })
+    }
+  }
 }
 </script>
 
@@ -43,6 +139,10 @@ export default {
   $one_row_mobile: 100% / 52
 
   @import "../assets/styles/mixins"
+
+  #map
+    @include desktop
+      height: 40vh
 
   .content
     display: flex

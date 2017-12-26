@@ -1,103 +1,103 @@
 <template>
-    <div class="page-content">
+    <div class="page-content cpa">
         <div v-if="fromPage === 'media'">
             CPA и медийная реклама работают на разный результат – последняя влияет на имидж и лояльность.
-            CPA же, как и <router-link to="/price-lists" class="link link-price-list" data-cost="Р5,67">прайс-площадки</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">контекстная</router-link> и
-            <router-link to="/target" class="link link-target" data-cost="Р1,12">таргетированная реклама в соцсетях</router-link> — на продажи.
+            CPA же, как и <router-link to="/price-lists" class="link link-price-list" data-cost="₽ 567">прайс-площадки</router-link>,
+            <router-link to="/contextus" class="link link-contextus" data-cost="₽ 1125">контекстная</router-link> и
+            <router-link to="/target" class="link link-target" data-cost="₽ 1120">таргетированная реклама в соцсетях</router-link> — на продажи.
             У агентства большая база CPA-партнеров, собственный арбитраж и система защиты от фрода в несколько этапов.
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
+            <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">Анализировать</router-link>
             комплексные кампании лучше тоже комплексно и сразу, на десктопе и
-            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">мобильном</router-link>.
+            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="₽ 639">мобильном</router-link>.
         </div>
         <div v-else-if="fromPage === 'price-lists'">
-            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">прайс-площадки</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">контекстная</router-link> и
-            <router-link to="/target" class="link link-target" data-cost="Р1,12">таргетированная реклама в соцсетях</router-link>,
+            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="₽ 567">прайс-площадки</router-link>,
+            <router-link to="/contextus" class="link link-contextus" data-cost="₽ 1125">контекстная</router-link> и
+            <router-link to="/target" class="link link-target" data-cost="₽ 1120">таргетированная реклама в соцсетях</router-link>,
             CPA – инструмент работы с продажами. У агентства большая база CPA-партнеров,
             собственный арбитраж и система защиты от фрода в несколько этапов, а также собственная команда
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">аналитиков</router-link>.
+            <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">аналитиков</router-link>.
             Для имиджа и лояльности или трафика на сайт инструмент не подходит. Для таких задач стоит использовать
-            <router-link to="/media" class="link link-media" data-cost="Р2,61">медийную рекламу и программатик</router-link>,
-            для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
+            <router-link to="/media" class="link link-media" data-cost="₽ 911">медийную рекламу и программатик</router-link>,
+            для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="₽ 709">SEO</router-link>.
+            <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">Анализировать</router-link>
             комплексные кампании лучше тоже комплексно и на всех
-            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">платформах</router-link> сразу.
+            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="₽ 639">платформах</router-link> сразу.
         </div>
         <div v-else-if="fromPage === 'seo'">
             У агентства большая база CPA-партнеров, собственный арбитраж и защита от фрода в несколько этапов.
-            Как и <router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">прайс-площадки</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">контекстная</router-link> и
-            <router-link to="/target" class="link link-target" data-cost="Р1,12">таргетированная реклама в соцсетях</router-link>,
+            Как и <router-link to="/price-lists" class="link link-price-lists" data-cost="₽ 567">прайс-площадки</router-link>,
+            <router-link to="/contextus" class="link link-contextus" data-cost="₽ 1125">контекстная</router-link> и
+            <router-link to="/target" class="link link-target" data-cost="₽ 1120">таргетированная реклама в соцсетях</router-link>,
             этот инструмент работает на продажи. Для трафика на сайт лучше использовать
-            <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>,
-            для имиджа и лояльности – <router-link to="/media" class="link link-media" data-cost="Р2,61">медийную рекламу</router-link>.
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
+            <router-link to="/seo" class="link link-seo" data-cost="₽ 709">SEO</router-link>,
+            для имиджа и лояльности – <router-link to="/media" class="link link-media" data-cost="₽ 911">медийную рекламу</router-link>.
+            <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">Анализировать</router-link>
             комплексные кампании стоит сразу во всех каналах и
-            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">платформах</router-link>.
+            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="₽ 639">платформах</router-link>.
         </div>
         <div v-else-if="fromPage === 'target'">
-            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">прайс-площадки</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">контекстная</router-link> и
-            <router-link to="/target" class="link link-target" data-cost="Р1,12">таргетированная реклама в соцсетях</router-link>,
+            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="₽ 567">прайс-площадки</router-link>,
+            <router-link to="/contextus" class="link link-contextus" data-cost="₽ 1125">контекстная</router-link> и
+            <router-link to="/target" class="link link-target" data-cost="₽ 1120">таргетированная реклама в соцсетях</router-link>,
             CPA – инструмент работы с продажами. У агентства большая база CPA-партнеров, собственный арбитраж и
             система защиты от фрода в несколько этапов, а также собственная команда
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">аналитиков</router-link>.
+            <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">аналитиков</router-link>.
             Для имиджа и лояльности или трафика на сайт инструмент не подходит. Для таких задач стоит использовать
-            для имиджа и лояльности – <router-link to="/media" class="link link-media" data-cost="Р2,61">медийную рекламу и программатик</router-link>,
-            для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
+            для имиджа и лояльности – <router-link to="/media" class="link link-media" data-cost="₽ 911">медийную рекламу и программатик</router-link>,
+            для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="₽ 709">SEO</router-link>.
+            <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">Анализировать</router-link>
             комплексные кампании лучше тоже комплексно и на всех
-            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">платформах</router-link>
+            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="₽ 639">платформах</router-link>
             сразу.
         </div>
         <div v-else-if="fromPage === 'contextus'">
-            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">прайс-площадки</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">контекстная</router-link> и
-            <router-link to="/target" class="link link-target" data-cost="Р1,12">таргетированная реклама в соцсетях</router-link>,
+            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="₽ 567">прайс-площадки</router-link>,
+            <router-link to="/contextus" class="link link-contextus" data-cost="₽ 1125">контекстная</router-link> и
+            <router-link to="/target" class="link link-target" data-cost="₽ 1120">таргетированная реклама в соцсетях</router-link>,
             CPA – инструмент работы с продажами. У агентства большая база CPA-партнеров, собственный арбитраж и система защиты от фрода в несколько этапов,
-            а также собственная команда <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">аналитиков</router-link>.
+            а также собственная команда <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">аналитиков</router-link>.
             Для имиджа и лояльности или трафика на сайт инструмент не подходит. Для таких задач стоит использовать
-            <router-link to="/media" class="link link-media" data-cost="Р2,61">медийную рекламу и программатик</router-link>,
-            для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
+            <router-link to="/media" class="link link-media" data-cost="₽ 911">медийную рекламу и программатик</router-link>,
+            для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="₽ 709">SEO</router-link>.
+            <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">Анализировать</router-link>
             комплексные кампании лучше тоже комплексно и на всех
-            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">платформах</router-link>
+            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="₽ 639">платформах</router-link>
         </div>
         <div v-else-if="fromPage === 'mobile-ads'">
             CPA вряд ли подойдёт для привлечения мобильной аудитории – несмотря на долю,люди пока что чаще покупают с десктопа.
-            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">прайс-площадки</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">контекстная</router-link> и
-            <router-link to="/target" class="link link-target" data-cost="Р1,12">таргетированная реклама в соцсетях</router-link>,
+            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="₽ 567">прайс-площадки</router-link>,
+            <router-link to="/contextus" class="link link-contextus" data-cost="₽ 1125">контекстная</router-link> и
+            <router-link to="/target" class="link link-target" data-cost="₽ 1120">таргетированная реклама в соцсетях</router-link>,
             этот инструмент работает на продажи. У агентства большая база CPA-партнеров, собственный арбитраж и система защиты от фрода в несколько этапов.
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
+            <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">Анализировать</router-link>
             комплексные кампании стоит сразу во всех каналах, на десктопе и в
-            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">мобильном</router-link>.
+            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="₽ 639">мобильном</router-link>.
         </div>
         <div v-else-if="fromPage === 'analitycs'">
             У агентства большая база CPA-партнеров, собственный арбитраж и защита от фрода в несколько этапов.
-            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">прайс-площадки</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">контекстная</router-link> и
-            <router-link to="/target" class="link link-target" data-cost="Р1,12">таргетированная реклама в соцсетях</router-link>,
-            этот инструмент работает на продажи. <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
+            Как <router-link to="/price-lists" class="link link-price-lists" data-cost="₽ 567">прайс-площадки</router-link>,
+            <router-link to="/contextus" class="link link-contextus" data-cost="₽ 1125">контекстная</router-link> и
+            <router-link to="/target" class="link link-target" data-cost="₽ 1120">таргетированная реклама в соцсетях</router-link>,
+            этот инструмент работает на продажи. <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">Анализировать</router-link>
             комплексные кампании стоит сразу во всех каналах, на десктопе и в
-            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="Р1,23">мобильном</router-link>.
+            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="₽ 639">мобильном</router-link>.
             Если же нужно повысить знание или лояльность, используют
-            <router-link to="/media" class="link link-media" data-cost="Р2,61">медийную рекламу</router-link>.
-            Для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
+            <router-link to="/media" class="link link-media" data-cost="₽ 911">медийную рекламу</router-link>.
+            Для трафика на сайт – <router-link to="/seo" class="link link-seo" data-cost="₽ 709">SEO</router-link>.
         </div>
         <div v-else>
             У агентства большая база CPA-партнеров, собственный арбитраж и&nbsp;защита от&nbsp;фрода
-            в&nbsp;несколько этапов. Как и&nbsp;<router-link to="/price-lists" class="link link-price-lists" data-cost="Р5,67">маркетплейсы</router-link>,
-            <router-link to="/contextus" class="link link-contextus" data-cost="Р0,13">paid search</router-link>
-            и&nbsp;<router-link to="/target" class="link link-target" data-cost="Р1,12">paid social</router-link>,
+            в&nbsp;несколько этапов. Как и&nbsp;<router-link to="/price-lists" class="link link-price-lists" data-cost="₽ 567">маркетплейсы</router-link>,
+            <router-link to="/contextus" class="link link-contextus" data-cost="₽ 1125">paid search</router-link>
+            и&nbsp;<router-link to="/target" class="link link-target" data-cost="₽ 1120">paid social</router-link>,
             этот инструмент работает на&nbsp;продажи. Для лояльности стоит использовать
-            <router-link to="/renovation" class="link link-media" data-cost="Р2,61">медийную рекламу</router-link>,
+            <router-link to="/media" class="link link-media" data-cost="₽ 911">медийную рекламу</router-link>,
             для трафика на&nbsp;сайт —
-            <router-link to="/seo" class="link link-seo" data-cost="Р1,26">SEO</router-link>.
-            <router-link to="/analitycs" class="link link-analitycs" data-cost="Р0,22">Анализировать</router-link>
+            <router-link to="/seo" class="link link-seo" data-cost="₽ 709">SEO</router-link>.
+            <router-link to="/analitycs" class="link link-analitycs" data-cost="₽ 820">Анализировать</router-link>
             комплексные кампании лучше тоже комплексно и&nbsp;на&nbsp;всех
-            <router-link to="/renovation" class="link link-mobile-ads" data-cost="Р1,23">платформах</router-link>
+            <router-link to="/mobile-ads" class="link link-mobile-ads" data-cost="₽ 639">платформах</router-link>
             сразу.
         </div>
     </div>
@@ -121,33 +121,46 @@ export default {
 <style lang="sass">
     @import "../../assets/styles/mixins"
 
+    .cpa
+        @include noMobile
+            margin: 3rem 0
+
     .app--route-cpa
         .mobile-logo,
         .footer__link
-            &::after
-                display: block
-                color: #FFFFFF
-                content: 'Р0,12'
-                opacity: 0
-                animation: show-balloon .2s linear .5s forwards
-                letter-spacing: 0
-                // padding: 0 1.1rem
-                text-align: center
-                position: absolute
-                background: #2D00E3
-                white-space: nowrap
-                border-radius: .3rem
-                pointer-events: none
+            @include noMobile
 
-                @include noMobile
+                &::after
+                    display: block
+                    color: #FFFFFF
+                    opacity: 0
+                    animation: show-balloon .2s linear .5s forwards
+                    letter-spacing: 0
+                    // padding: 0 1.1rem
+                    text-align: center
+                    position: absolute
+                    background: #2D00E3
+                    white-space: nowrap
+                    border-radius: .3rem
+                    pointer-events: none
                     width: 7rem
                     font-size: 1.4rem
                     line-height: 3.4rem
 
-                @include mobile
-                    width: 6rem
-                    font-size: 1.2rem
-                    line-height: 3rem
+                &-1::after
+                    content: '₽ 600'
+
+                &-2::after
+                    content: '₽ 1200'
+
+                &-3::after
+                    content: '₽ 950'
+
+                &-4::after
+                    content: '₽ 500'
+
+                &-5::after
+                    content: '₽ 890'
 
         .mobile-logo::after
             @include desktop
@@ -253,8 +266,7 @@ export default {
             z-index: 10
             display: block
             color: #FFFFFF
-            content: attr(data-cost)
-            letter-spacing: 0
+            letter-spacing: 1px
             text-align: center
             position: absolute
             background: #2D00E3
@@ -267,11 +279,7 @@ export default {
                 width: 7rem
                 font-size: 1.4rem
                 line-height: 3.4rem
-
-            @include mobile
-                width: 6rem
-                font-size: 1.2rem
-                line-height: 3rem
+                content: attr(data-cost)
 
         &-price-lists::after
             top: -4.6rem

@@ -112,7 +112,8 @@
 
       return {
         vacancies: vacancies,
-        tags: vacanciesTags
+        tags: vacanciesTags,
+        activeTage: 0
       }
     },
     computed: {
@@ -132,24 +133,11 @@
     },
     methods: {
       setTagState (index) {
-        let excludeIds = []
-
-        this.tags[index].isActive = !this.tags[index].isActive
-
-        this.tags.forEach(item => {
-          if (item.isActive) {
-            Array.prototype.push.apply(excludeIds, item.exclude)
-          }
-        })
-
-        excludeIds = Array.from(new Set(excludeIds))
-
-        this.tags.forEach(item => {
-          if (excludeIds.indexOf(item.id) > -1) {
-            item.isActive = false
-            item.isDisabled = true
+        this.tags.forEach((item, i) => {
+          if (i === index) {
+            this.tags[i].isActive = !this.tags[i].isActive
           } else {
-            item.isDisabled = false
+            this.tags[i].isActive = false
           }
         })
       }

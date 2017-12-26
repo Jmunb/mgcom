@@ -3,18 +3,18 @@ import Router from 'vue-router'
 
 import Index from '@/pages/Index'
 import Partners from '@/pages/Partners'
-import Customers from '@/pages/Customers'
+import Customers from '@/pages/newCustomers'
 import Contacts from '@/pages/Contacts'
-import Team from '@/pages/Team'
+// import Team from '@/pages/Team'
 import Vacancies from '@/pages/Vacancies'
 import Renovation from '@/pages/Renovation'
 
-import Media from '@/pages/services/Media'
+// import Media from '@/pages/services/Media'
 import Target from '@/pages/services/Target'
 import SEO from '@/pages/services/SEO'
 import Analitycs from '@/pages/services/Analitycs'
 import PriceLists from '@/pages/services/PriceLists'
-import Contextus from '@/pages/services/Contextus'
+// import Contextus from '@/pages/services/Contextus'
 import Cpa from '@/pages/services/Cpa'
 import MobileAds from '@/pages/services/MobileAds'
 
@@ -33,7 +33,6 @@ export default new Router({
       name: 'renovation',
       component: Renovation
     },
-
     {
       path: '/partners',
       name: 'partners',
@@ -52,7 +51,8 @@ export default new Router({
     {
       path: '/team',
       name: 'team',
-      component: Team
+      component: Renovation
+      // component: Team
     },
     {
       path: '/vacancies',
@@ -63,7 +63,8 @@ export default new Router({
     {
       path: '/media',
       name: 'media',
-      component: Media
+      component: Renovation
+      // component: Media
     },
     {
       path: '/target',
@@ -88,7 +89,8 @@ export default new Router({
     {
       path: '/contextus',
       name: 'contextus',
-      component: Contextus
+      component: Renovation
+      // component: Contextus
     },
     {
       path: '/cpa',

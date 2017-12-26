@@ -8,6 +8,23 @@
     </div>
     <div class="description">
       <div class="title">Реклама на&nbsp;маркет-плейсах</div>
+      <div class="places">
+        <div
+                @click="sliderIndex=1"
+                v-bind:class="{'one-partner--active ': sliderIndex===1}"
+                class="one-partner one-partner-ya"
+        ></div>
+        <div
+                @click="sliderIndex=2"
+                v-bind:class="{'one-partner--active ': sliderIndex===2}"
+                class="one-partner one-partner-cian"
+        ></div>
+        <div
+                @click="sliderIndex=3"
+                v-bind:class="{'one-partner--active ': sliderIndex===3}"
+                class="one-partner one-partner-avito"
+        ></div>
+      </div>
       <div class="text" v-if="fromPage === 'media'">
         В отличие от медийной, реклама на прайс-площадках специализируется на привлечении лидов и увеличении продаж. Разместиться можно на Яндекс.Маркете, Циане, Авито и других площадках из e-commerce и недвижимости. В агентстве создают уникальных роботов под задачу клиента – для управления ставками, обработки и валидации фидов.
       </div>
@@ -39,28 +56,11 @@
         и недвижимости. В агентстве создают уникальных роботов под задачу клиента —
         для управления ставками, обработки и валидации.
       </div>
-      <div class="places">
-        <div
-                @click="sliderIndex=1"
-                v-bind:class="{'one-partner--active ': sliderIndex===1}"
-                class="one-partner one-partner-ya"
-        ></div>
-        <div
-                @click="sliderIndex=2"
-                v-bind:class="{'one-partner--active ': sliderIndex===2}"
-                class="one-partner one-partner-cian"
-        ></div>
-        <div
-                @click="sliderIndex=3"
-                v-bind:class="{'one-partner--active ': sliderIndex===3}"
-                class="one-partner one-partner-avito"
-        ></div>
-      </div>
     </div>
     <div class="more">
       <div class="more__title">Пользователи, посмотревшие эту страницу также смотрели:</div>
       <div class="links">
-          <router-link to="/renovation" class="one-link">
+          <router-link to="/media" class="one-link">
             <div>Медийная реклама</div>
             <div class="stars">
               <div class="one-star one-star--gray"></div><div class="one-star"></div><div class="one-star"></div><div class="one-star"></div><div class="one-star"></div>
@@ -96,7 +96,7 @@
               <div class="one-star"></div><div class="one-star"></div><div class="one-star"></div><div class="one-star"></div><div class="one-star"></div>
             </div>
           </router-link>
-          <router-link to="/renovation" class="one-link">
+          <router-link to="/mobile-ads" class="one-link">
             <div>Мобайл</div>
             <div class="stars">
               <div class="one-star"></div><div class="one-star"></div><div class="one-star"></div><div class="one-star"></div><div class="one-star"></div>

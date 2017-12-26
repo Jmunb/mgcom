@@ -56,11 +56,11 @@
 let links = [
   {id: 1, title: 'контекст', link: '/contextus'}, // 0
   {id: 2, title: 'веб-аналитика', link: '/analitycs'}, // 1
-  {id: 3, title: 'баннеры', link: '/renovation'}, // 2
+  {id: 3, title: 'баннеры', link: '/media'}, // 2
   {id: 4, title: 'таргетинг', link: '/target'}, // 3
   {id: 5, title: 'маркетплейсы', link: '/price-lists'}, // 4
   {id: 6, t: 'SEO', title: 'smm', link: '/seo'}, // 5
-  {id: 7, title: 'мобайл', link: '/renovation'}, // 6
+  {id: 7, title: 'мобайл', link: '/mobile-ads'}, // 6
   {id: 8, title: 'cpa', link: '/cpa'} // 7
 ]
 

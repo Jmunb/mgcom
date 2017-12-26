@@ -612,7 +612,7 @@ export default {
 
   .vertical-advert
     display: flex
-    height: 25rem
+    min-height: 25rem
     flex: 0 0 45%
     overflow: hidden
     margin-left: 2.5rem
@@ -686,23 +686,23 @@ export default {
     background: no-repeat center center / cover
 
     &--1
-      background-image: url(../../assets/images/advert/1.png)
+      background-image: url(../../assets/images/advert/1.jpg)
 
     &--2
-      background-image: url(../../assets/images/advert/2.png)
+      background-image: url(../../assets/images/advert/2.jpg)
 
     &--3
-      background-image: url(../../assets/images/advert/3.png)
+      background-image: url(../../assets/images/advert/3.jpg)
 
     &--4
-      background-image: url(../../assets/images/advert/4.png)
+      background-image: url(../../assets/images/advert/4.jpg)
 
     &--5
-      background-image: url(../../assets/images/advert/5.png)
+      background-image: url(../../assets/images/advert/5.jpg)
 
     &--6
-      background-image: url(../../assets/images/advert/6.png)
+      background-image: url(../../assets/images/advert/6.jpg)
 
     &--7
-      background-image: url(../../assets/images/advert/7.png)
+      background-image: url(../../assets/images/advert/7.jpg)
 </style>

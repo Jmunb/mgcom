@@ -5,7 +5,7 @@
         по&nbsp;воронке с&nbsp;помощью инструментов перфоманс-маркетинга:
         <router-link to="/contextus" class="link">paid search</router-link>
         и&nbsp;<router-link to="/target" class="link">paid social</router-link>,
-        <router-link to="/renovation" class="link">медийной рекламы и programmatic</router-link>,
+        <router-link to="/media" class="link">медийной рекламы и programmatic</router-link>,
         <router-link to="/cpa" class="link">CPA</router-link>
         и&nbsp;<router-link to="/price-lists" class="link">маркетплейсов</router-link>,
         <router-link to="/analitycs" class="link">аналитику</router-link>

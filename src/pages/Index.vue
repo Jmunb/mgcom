@@ -1,5 +1,5 @@
 <template>
-    <div class="page-content">
+    <div class="new-page-content index">
         Агентство помогает крупному и&nbsp;среднему бизнесу&nbsp;привлекать клиентов и&nbsp;проводить их по&nbsp;воронке с&nbsp;помощью инструментов перфоманс-маркетинга:
         <router-link to="/contextus" class="link">paid search</router-link>
         и&nbsp;<router-link to="/target" class="link">paid social</router-link>,
@@ -18,7 +18,34 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+    @import "../assets/styles/mixins"
+    $one_column: 100% / 36
+
+    .new-page-content
+        font-size: 2.6rem
+        letter-spacing: 0
+        line-height: 3.71429rem
+
+        @include desktop
+            padding-left: $one_column
+            width: $one_column * 24
+            align-self: center
+
+        @include noDesktop
+            width: 75%
+
+        @include bigDesktop
+            font-size: 3.6rem
+            line-height: 4.8rem
+
+        @include mobile
+            font-size: 1.8rem
+            line-height: 2.6rem
     .link
         color: #0202e6
+
+    .index
+        @include noMobile
+            margin: 10rem 0
 
 </style>

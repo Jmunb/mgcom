@@ -3,7 +3,7 @@
         <div class="one-job__num">{{ index }} / {{ jobCount }}</div>
         <div class="one-job__title">{{ job.title }}</div>
         <div class="one-job__text" v-html="job.text"></div>
-        <div v-if="false" class="one-job__send-block">
+        <div class="one-job__send-block">
             <div v-if="showForm" class="one-job__form">
                 <div class="one-line">
                     <div class="one-line__label">От:</div>
@@ -18,7 +18,8 @@
                     <div class="one-line__file">Приложить файл</div>
                 </div>
             </div>
-            <a v-else href="javascript:void(0)" class="one-job__button" @click.stop.prevent="showForm=true">Отправить резюме</a>
+            <a v-else href="mailto:hr@mgcom.ru" class="one-job__button">Отправить резюме</a>
+            <a v-if="false" href="mailto:hr@mgcom.ru" class="one-job__button" @click.stop.prevent="showForm=true">Отправить резюме</a>
         </div>
     </li>
 </template>
