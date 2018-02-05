@@ -41,8 +41,6 @@ export default {
         @include mobile
             font-size: 1.8rem
             line-height: 2.6rem
-    .link
-        color: #0202e6
 
     .index
         @include noMobile

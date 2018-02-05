@@ -9,9 +9,9 @@
         </p>
 
         <p class="one-line">
-          107031, Москва,<br>
-          Петровка 15/13, стр. 5,<br>
-          4 этаж.
+          127051, г. Москва,<br>
+          ул. Цветной бульвар,<br>
+          д. 25, стр.3
         </p>
       </div>
 
@@ -45,7 +45,7 @@ export default {
   data () {
     return {
       map: null,
-      uluru: {lat: 55.763937, lng: 37.616309},
+      uluru: {lat: 55.7729881, lng: 37.6194797},
       marker: null,
       marker1: null,
       position: null,
@@ -58,7 +58,7 @@ export default {
 
     this.map = new window.google.maps.Map(document.getElementById('map'), {
       zoom: 15,
-      minZoom: 11,
+      minZoom: 10,
       center: this.uluru,
       mapTypeControl: false,
       fullscreenControl: false,

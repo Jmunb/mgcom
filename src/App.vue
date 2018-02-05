@@ -161,7 +161,7 @@ export default {
     .app--route-contacts
         .logo__first-letter,
         .logo__last-letter
-            fill: #0A0AE2
+            fill: #0099FF
 
     .app--route-target,
     .app--route-price-lists,
@@ -396,7 +396,7 @@ export default {
             transition: fill .4s linear
 
         &__first-letter
-            fill: #0A0AE2
+            fill: #0099FF
 
         &__last-letter
             fill: #000000

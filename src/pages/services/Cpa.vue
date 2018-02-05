@@ -139,7 +139,7 @@ export default {
                     // padding: 0 1.1rem
                     text-align: center
                     position: absolute
-                    background: #2D00E3
+                    background: #0099FF
                     white-space: nowrap
                     border-radius: .3rem
                     pointer-events: none
@@ -259,7 +259,6 @@ export default {
     .link
         position: relative
         display: inline
-        color: #0202e6
 
         &::after
             opacity: 0
@@ -269,7 +268,7 @@ export default {
             letter-spacing: 1px
             text-align: center
             position: absolute
-            background: #2D00E3
+            background: #0099FF
             white-space: nowrap
             border-radius: .3rem
             pointer-events: none

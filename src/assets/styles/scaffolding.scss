@@ -20,7 +20,7 @@ html, body {
 
 ::selection {
     color: #000000;
-    background: #2D0ED0;
+    background: #0099FF;
 }
 
 a {
@@ -34,4 +34,9 @@ a:hover {
 }
 
 a:visited {
+}
+
+
+.link {
+    color: #0099FF;
 }
